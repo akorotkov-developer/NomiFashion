@@ -1,0 +1,1 @@
+Разработано в  <a href="https://nomi.fashion/" title="NOMI.FASHION">Nomi</a>
