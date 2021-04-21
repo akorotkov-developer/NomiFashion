@@ -3476,7 +3476,8 @@ select[multiple] {
 .menu > li > a {
     display: block;
     padding: .7rem 1rem;
-    line-height: 1
+    line-height: 1;
+    background-color: #afafb0;
 }
 
 .menu > li > a i, .menu > li > a img, .menu > li > a svg {
@@ -3568,7 +3569,7 @@ select[multiple] {
 
 .menu .active > a {
     color: #fff;
-    background: #533f34
+    background-color: #e6e6e8;
 }
 
 .menu-text {
@@ -5759,7 +5760,7 @@ header .header-block-info-counter {
 }
 
 .mobile-menu .mobile-menu-main .menu a, .mobile-menu .mobile-menu-main a {
-    color: #000
+    color: #fff;
 }
 
 .mobile-menu .mobile-menu-main .menu a:after, .mobile-menu .mobile-menu-main a:after {
