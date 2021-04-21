@@ -6002,6 +6002,7 @@ header .header-block-info-counter {
     font-size: 1.75rem;
     font-weight: 900;
     color: #fff;
+    font-family: 'Parangon';
 }
 
 @media screen and (min-width: 47.375em) {
@@ -6023,13 +6024,15 @@ header .header-block-info-counter {
     .main-slider .main-slider-caption {
         margin-top: 8.75rem;
         font-size: 3.5rem;
-        line-height: 3.75rem
+        line-height: 3.75rem;
+        font-family: 'Parangon';
     }
 }
 
 .main-slider .main-slider-desc {
     margin-bottom: 1.5625rem;
     color: #fff;
+    font-family: 'Parangon';
 }
 
 @media screen and (min-width: 62.375em) {

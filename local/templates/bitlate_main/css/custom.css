@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Parangon';
+    src: local('Parangon 220 C'), local('Parangon-220-C'),
+    url('../fonts/Parangon220C.woff2') format('woff2'),
+    url('../fonts/Parangon220C.woff') format('woff'),
+    url('../fonts/Parangon220C.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .colorpicker-saturation {
     width: 150px;
     height: 150px;
