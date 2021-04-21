@@ -11156,8 +11156,8 @@ blockquote:after, blockquote:before {
     margin-left: -1px;
     width: 15.0625rem;
     height: 18.1875rem;
-    padding: 1.5625rem;
-    border: .0625rem solid #e9e9e9
+    padding: 0px;
+    border: 0px;
 }
 
 .product-grid .item:first-child {
@@ -11207,7 +11207,8 @@ blockquote:after, blockquote:before {
 }
 
 .product-grid .item.hover-elements:hover .hover-show {
-    display: block
+    display: block;
+    padding-bottom: 10px;
 }
 
 .product-grid .item.hover-elements .add2cart {
@@ -11256,7 +11257,7 @@ blockquote:after, blockquote:before {
 
 .product-grid .item .img-wrap {
     display: block;
-    height: 10.625rem;
+    height: auto;
     line-height: 10.625rem
 }
 
@@ -11266,8 +11267,8 @@ blockquote:after, blockquote:before {
 
 .product-grid .item .thumbnail {
     margin: 0 auto 1.25rem;
-    width: auto;
-    max-height: 9.375rem
+    width: 100%;
+    /*max-height: 9.375rem*/
 }
 
 .product-grid .item .price-block {
@@ -11289,8 +11290,8 @@ blockquote:after, blockquote:before {
 .products-flex-item {
     float: left;
     margin: -1px 0 0 -1px;
-    width: 241px;
-    height: 291px;
+    width: 226px;
+    height: 500px;
     -webkit-transition: border-color .25s ease;
     transition: border-color .25s ease
 }
@@ -11406,10 +11407,11 @@ blockquote:after, blockquote:before {
     display: table;
     width: 100%;
     height: 2.5rem;
-    margin-bottom: .3125rem;
     font-size: .875rem;
     line-height: 1.25rem;
-    color: #000
+    color: #000;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .product-grid .name a, .product-list .name a {
@@ -11435,7 +11437,8 @@ blockquote:after, blockquote:before {
     line-height: 1.5rem;
     white-space: nowrap;
     overflow-x: auto;
-    color: #533f34
+    color: #533f34;
+    text-align: left;
 }
 
 .product-grid .price > .rub, .product-list .price > .rub {
