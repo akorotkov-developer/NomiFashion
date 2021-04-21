@@ -225,13 +225,16 @@ if (!empty($arResult['ITEMS']))
             }
             if ($pic === false) {
                 $pic['src'] = $arResult["EMPTY_PREVIEW"];
+                $isNoPhoto = true;
+            } else {
+                $isNoPhoto =false;
             }?>
             <div class="img-wrap">
                 <?if ($arParams["TEMPLATE_THEME"] != 'slider'):?>
-                    <img id="<? echo $arItemIDs['PICT']; ?>" src="<?=NLApparelshopUtils::getLoadSrc($pic['src'])?>" data-src="<?=$pic['src']?>" class="thumbnail lazy" alt="<? echo $productTitle; ?>">
+                    <img id="<? echo $arItemIDs['PICT']; ?>" src="<?=NLApparelshopUtils::getLoadSrc($pic['src'])?>" data-src="<?=$pic['src']?>" class="thumbnail lazy <?= ($isNoPhoto) ? 'element_custom_margin' : ''?>" alt="<? echo $productTitle; ?>">
                 <?else:?>
                     <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>">
-                        <img id="<? echo $arItemIDs['PICT']; ?>" src="<?=NLApparelshopUtils::getLoadSrc($pic['src'])?>" data-src="<?=$pic['src']?>" class="thumbnail lazy" alt="<? echo $productTitle; ?>">
+                        <img id="<? echo $arItemIDs['PICT']; ?>" src="<?=NLApparelshopUtils::getLoadSrc($pic['src'])?>" data-src="<?=$pic['src']?>" class="thumbnail lazy <?= ($isNoPhoto) ? 'element_custom_margin' : ''?>" alt="<? echo $productTitle; ?>">
                     </a>
                 <?endif;?>
             </div>
