@@ -377,7 +377,7 @@ global $USER;
                         )
                     );?>
 
-                <div class="hidden_text_on_main_page" style="display: none">
+                <div class="hidden_text_on_main_page">
                     <div class="container row">
                         <div class="hidden_text_on_main_page_content">
                             <?$APPLICATION->IncludeComponent("bitrix:main.include", "",
