@@ -1,0 +1,28 @@
+.hidden_text_on_main_page_content {
+    position: relative;
+    height: 136px;
+    overflow: hidden;
+}
+.hidden_text_on_main_page_content:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0)),to(#fff));
+    background: linear-gradient(rgba(255,255,255,0),#fff);
+    bottom: 15px;
+    left: 0;
+    z-index: 5;
+}
+.hidden_text_on_main_page_content.opened:after {
+    bottom: 0px;
+}
+.hidden_text_on_main_page_content.opened {
+    height: auto;
+}
+.show_hidden_text_on_main_page {
+    color: #42413c;
+    font-size: 18px;
+    cursor: pointer;
+    border-bottom: 1px dashed;
+}

@@ -376,6 +376,23 @@ global $USER;
                             'NEWS_TYPE' => 3,
                         )
                     );?>
+
+                <div class="hidden_text_on_main_page" style="display: none">
+                    <div class="container row">
+                        <div class="hidden_text_on_main_page_content">
+                            <?$APPLICATION->IncludeComponent("bitrix:main.include", "",
+                                array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "PATH" => SITE_DIR . "include/hidden_text_on_main_page.php"
+                                ),
+                                false
+                            );?>
+                        </div>
+
+                        <span class="show_hidden_text_on_main_page" data-opened="false">Читать далее</span>
+                    </div>
+                </div>
+
                 <?elseif (($APPLICATION->GetCurDir() == SITE_DIR . 'personal/' || $APPLICATION->GetCurDir() == SITE_DIR . 'personal/profile/') && $USER->IsAuthorized()):?>
                     <div class="inner-bg">
                         <div class="advanced-container-medium">
