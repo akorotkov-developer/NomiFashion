@@ -256,7 +256,7 @@ if (!empty($arResult['ITEMS']))
 					$arOffer['PREVIEW_PICTURE'] = $offerPictures['PICT'];
                     $pic = false;
                     if ($arOffer['PREVIEW_PICTURE']['ID'] > 0) {
-                        $pic = CFile::ResizeImageGet($arOffer["PREVIEW_PICTURE"]['ID'], array('width' => 170, 'height' => 150), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true);
+                        $pic = CFile::ResizeImageGet($arOffer["PREVIEW_PICTURE"]['ID'], array('width' => 226, 'height' => 288), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true);
                     }
                     if ($pic === false) {
                         $pic['src'] = SITE_TEMPLATE_PATH . "/images/no_photo.png";
@@ -366,7 +366,7 @@ if (!empty($arResult['ITEMS']))
 			$arItem['OFFERS_PROPS_DISPLAY'] = $boolSKUDisplayProperties;
             $pic = false;
             if ($arItem['PRODUCT_PREVIEW']['ID'] > 0) {
-                $pic = CFile::ResizeImageGet($arItem["PRODUCT_PREVIEW"]['ID'], array('width' => 170, 'height' => 150), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true);
+                $pic = CFile::ResizeImageGet($arItem["PRODUCT_PREVIEW"]['ID'], array('width' => 226, 'height' => 288), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true);
             }
             if ($pic === false) {
                 $pic['src'] = SITE_TEMPLATE_PATH . "/images/no_photo.png";

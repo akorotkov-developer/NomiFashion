@@ -217,7 +217,7 @@ if (!empty($arResult['ITEMS']))
 		if ($arItem['CATALOG'] && isset($arItem['OFFERS']) && !empty($arItem['OFFERS']))
 		{
 			$isBigPreview = (!empty($arItem['PROPERTIES']['PRODUCT_OF_DAY']['VALUE']) && intval($arItem['PROPERTIES']['ALREADY_PAYED']['VALUE']) > 0 && $arParams["TEMPLATE_THEME"] != 'slider' && $arParams["TAB_TYPE"]) ? true : false;
-			$arSizePreview = ($isBigPreview) ? array('width' => 429, 'height' => 380) : array('width' => 170, 'height' => 150);
+			$arSizePreview = ($isBigPreview) ? array('width' => 429, 'height' => 380) : array('width' => 226, 'height' => 288);
 			if ('Y' == $arParams['PRODUCT_DISPLAY_MODE'])
 			{
 				$arMatrixFields = $arSKUPropKeys;

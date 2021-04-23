@@ -216,7 +216,7 @@ if (!empty($arResult['ITEMS']))
 		if ($arItem['CATALOG'] && isset($arItem['OFFERS']) && !empty($arItem['OFFERS']))
 		{
             $isBigPreview = false;
-            $arSizePreview = ($isBigPreview) ? array('width' => 429, 'height' => 380) : array('width' => 170, 'height' => 150);
+            $arSizePreview = ($isBigPreview) ? array('width' => 429, 'height' => 380) : array('width' => 226, 'height' => 288);
             if ('Y' == $arParams['PRODUCT_DISPLAY_MODE'])
 			{
 				$arMatrixFields = $arSKUPropKeys;

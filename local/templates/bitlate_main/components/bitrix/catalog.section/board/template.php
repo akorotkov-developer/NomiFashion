@@ -220,7 +220,7 @@ if (!empty($arResult['ITEMS']))
             <?endif;?>
             <?$pic = false;
             if ($arItem['PREVIEW_PICTURE']['ID'] > 0) {
-                $arSizePreview = ($isBigPreview) ? array('width' => 429, 'height' => 380) : array('width' => 170, 'height' => 150);
+                $arSizePreview = ($isBigPreview) ? array('width' => 429, 'height' => 380) : array('width' => 226, 'height' => 288);
                 $pic = NLApparelshopUtils::getResizeImg($arItem["PREVIEW_PICTURE"]['ID'], $arSizePreview);
             }
             if ($pic === false) {

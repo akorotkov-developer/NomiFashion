@@ -19,7 +19,7 @@ $this->setFrameMode(true);
         $this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
         $pic = false;
         if (false !== $arSection['PICTURE']) {
-            $pic = NLApparelshopUtils::getResizeImg($arSection['PICTURE']['ID'], array('width' => 170, 'height' => 150));
+            $pic = NLApparelshopUtils::getResizeImg($arSection['PICTURE']['ID'], array('width' => 226, 'height' => 288));
             $arSection['PICTURE']['SRC'] = $pic['src'];
         }
         if (false === $arSection['PICTURE'] || false === $pic) {

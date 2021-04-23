@@ -206,7 +206,7 @@ if (!empty($arResult['ITEMS']))
             <?endif;?>
             <?$pic = false;
             if ($arItem['PREVIEW_PICTURE']['ID'] > 0) {
-                $pic = NLApparelshopUtils::getResizeImg($arItem["PREVIEW_PICTURE"]['ID'], array('width' => 170, 'height' => 150));
+                $pic = NLApparelshopUtils::getResizeImg($arItem["PREVIEW_PICTURE"]['ID'], array('width' => 226, 'height' => 288));
             }
             if ($pic === false) {
                 $pic['src'] = $arResult["EMPTY_PREVIEW"];

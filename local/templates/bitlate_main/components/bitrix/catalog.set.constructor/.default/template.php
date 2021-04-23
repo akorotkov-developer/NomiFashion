@@ -30,7 +30,7 @@ $curJsId = $this->randString();
             <div class="product-pack-char right">+</div>
             <?$pic = false;
             if ($arResult["ELEMENT"]["PREVIEW_PICTURE"] > 0) {
-                $pic = NLApparelshopUtils::getResizeImg($arResult["ELEMENT"]["PREVIEW_PICTURE"], array('width' => 170, 'height' => 150));
+                $pic = NLApparelshopUtils::getResizeImg($arResult["ELEMENT"]["PREVIEW_PICTURE"], array('width' => 226, 'height' => 288));
             } elseif ($arResult["ELEMENT"]["DETAIL_PICTURE"]['src']) {
                 $pic['src'] = $arResult["ELEMENT"]["DETAIL_PICTURE"]["src"];
             }
@@ -67,7 +67,7 @@ $curJsId = $this->randString();
                     <div class="product-pack-char left show-for-large">+</div>
                     <?$pic = false;
                     if ($arItem["PREVIEW_PICTURE"] > 0) {
-                        $pic = NLApparelshopUtils::getResizeImg($arItem["PREVIEW_PICTURE"], array('width' => 170, 'height' => 150));
+                        $pic = NLApparelshopUtils::getResizeImg($arItem["PREVIEW_PICTURE"], array('width' => 226, 'height' => 288));
                     } elseif ($arItem["DETAIL_PICTURE"]['src']) {
                         $pic['src'] = $arItem["DETAIL_PICTURE"]["src"];
                     }
@@ -131,7 +131,7 @@ $curJsId = $this->randString();
                 <div class="product-pack-char left show-for-large">+</div>
                 <?$pic = false;
                 if ($arItem["PREVIEW_PICTURE"] > 0) {
-                    $pic = NLApparelshopUtils::getResizeImg($arItem["PREVIEW_PICTURE"], array('width' => 170, 'height' => 150));
+                    $pic = NLApparelshopUtils::getResizeImg($arItem["PREVIEW_PICTURE"], array('width' => 226, 'height' => 288));
                 } elseif ($arItem["DETAIL_PICTURE"]['src']) {
                     $pic['src'] = $arItem["DETAIL_PICTURE"]["src"];
                 }

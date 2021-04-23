@@ -84,9 +84,9 @@ foreach ($arResult["ITEMS"] as $arElement) {
         <?foreach($arResult["ITEMS"] as $key => $arCurElement):
             $pic = false;
             if ($arCurElement['PREVIEW_PICTURE']['ID'] > 0) {
-                $pic = NLApparelshopUtils::getResizeImg($arCurElement['PREVIEW_PICTURE']['ID'], array('width' => 150, 'height' => 170));
+                $pic = NLApparelshopUtils::getResizeImg($arCurElement['PREVIEW_PICTURE']['ID'], array('width' => 226, 'height' => 288));
             } elseif ($arCurElement['DETAIL_PICTURE']['ID'] > 0) {
-                $pic = NLApparelshopUtils::getResizeImg($arCurElement['DETAIL_PICTURE']['ID'], array('width' => 150, 'height' => 170));
+                $pic = NLApparelshopUtils::getResizeImg($arCurElement['DETAIL_PICTURE']['ID'], array('width' => 226, 'height' => 288));
             }
             if ($pic === false) {
                 $pic['src'] = SITE_TEMPLATE_PATH . '/images/no_photo.png';

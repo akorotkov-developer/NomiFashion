@@ -240,7 +240,7 @@ if (!empty($arResult['ITEMS']))
         <?endif;?>
         <?$pic = false;
         if ($arItem['PREVIEW_PICTURE']['ID'] > 0) {
-            $arSizePreview = array('width' => 170, 'height' => 150);
+            $arSizePreview = array('width' => 226, 'height' => 288);
             $pic = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"]['ID'], $arSizePreview, BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true);
         }
         if ($pic === false) {

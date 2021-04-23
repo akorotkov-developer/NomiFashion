@@ -69,9 +69,9 @@ $offersCartProps = explode("|", $offersCartProps);?>
                         if ($arItem["DELAY"] == "N" && $arItem["CAN_BUY"] == "Y"):
                             $pic = false;
                             if ($arItem["PREVIEW_PICTURE"] > 0) {
-                                $pic = NLApparelshopUtils::getResizeImg($arItem["PREVIEW_PICTURE"], array('width' => 170, 'height' => 150));
+                                $pic = NLApparelshopUtils::getResizeImg($arItem["PREVIEW_PICTURE"], array('width' => 226, 'height' => 288));
                             } elseif ($arItem["DETAIL_PICTURE"] > 0) {
-                                $pic = NLApparelshopUtils::getResizeImg($arItem["DETAIL_PICTURE"], array('width' => 170, 'height' => 150));
+                                $pic = NLApparelshopUtils::getResizeImg($arItem["DETAIL_PICTURE"], array('width' => 226, 'height' => 288));
                             }
                             if ($pic === false) {
                                 $pic['src'] = SITE_TEMPLATE_PATH . "/images/no_photo.png";
