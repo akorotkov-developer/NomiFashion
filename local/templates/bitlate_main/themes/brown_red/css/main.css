@@ -5671,7 +5671,7 @@ header .header-block-info-counter {
 }
 
 .mobile-menu, .mobile-menu .menu {
-    background-color: #533f34
+    background-color: #afafb0;
 }
 
 .mobile-menu {
@@ -5770,7 +5770,7 @@ header .header-block-info-counter {
 }
 
 .mobile-menu .menu .js-drilldown-back a {
-    color: #c02344
+    color: #43413d;
 }
 
 .mobile-menu .menu .js-drilldown-back a:before {
@@ -5779,8 +5779,8 @@ header .header-block-info-counter {
     margin-right: .3125rem;
     vertical-align: inherit;
     border: 0;
-    border-top: 2px solid #c02344;
-    border-left: 2px solid #c02344;
+    border-top: 2px solid #43413d;
+    border-left: 2px solid #43413d;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg)
 }

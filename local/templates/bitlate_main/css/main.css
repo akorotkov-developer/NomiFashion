@@ -5616,7 +5616,7 @@ select[multiple] {
 }
 
 .mobile-menu .menu .js-drilldown-back a {
-    color: #d8192b
+    color: #43413d;
 }
 
 .mobile-menu .menu .js-drilldown-back a:before {
@@ -11068,4 +11068,8 @@ blockquote:after, blockquote:before {
     border-top: .875rem solid transparent;
     border-right: .75rem solid #fff;
     border-bottom: .875rem solid transparent
+}
+
+.icon-burger {
+    fill: #43413d;
 }
