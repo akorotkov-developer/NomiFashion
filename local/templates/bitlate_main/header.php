@@ -216,7 +216,7 @@ global $USER;
             </div>
             <div class="advanced-container inline-block-container relative header-mobile-fixed">
                 <a href="javascript:;" class="header-mobile-toggle inline-block-item vertical-middle hide-for-xlarge">
-                    <svg class="icon icon-burger" style="width: 20px; height: 20px;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M112 240l800 0 0 48-800 0 0-48ZM112 480l800 0 0 48-800 0 0-48ZM112 736l800 0 0 48-800 0 0-48Z" /></svg>
+                    <svg class="icon icon-burger" style="width: 20px; height: 20px;vertical-align: middle;fill: #43413d;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M112 240l800 0 0 48-800 0 0-48ZM112 480l800 0 0 48-800 0 0-48ZM112 736l800 0 0 48-800 0 0-48Z" /></svg>
                 </a>
                 <a href="<?=SITE_DIR?>" class="header-logo inline-block-item vertical-middle">
                     <?$APPLICATION->IncludeFile(

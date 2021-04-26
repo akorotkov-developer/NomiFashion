@@ -2147,7 +2147,7 @@ h3, h4, h5, h6 {
 
 a {
     background-color: transparent;
-    color: #533f34;
+    color: #43413d;
     text-decoration: none;
     cursor: pointer
 }
@@ -2639,7 +2639,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 input::placeholder, textarea::placeholder {
-    color: #a8adb7
+    color: #43413d
 }
 
 input:disabled, input[readonly], textarea:disabled, textarea[readonly] {
@@ -5256,7 +5256,7 @@ header .header-block-info-counter {
     width: 1.3125rem;
     height: 2rem;
     margin-right: .5rem;
-    fill: #42403c;
+    fill: #43413d;
 }
 
 .header-phone .header-phone-number {
@@ -5300,7 +5300,7 @@ header .header-block-info-counter {
     width: 2.125rem;
     height: 1.75rem;
     margin-right: .625rem;
-    fill: #42403c;
+    fill: #43413d;
 }
 
 .header-block-info .header-block-info-link {
@@ -5315,7 +5315,7 @@ header .header-block-info-counter {
     line-height: 1.125rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #666
+    color: #43413d
 }
 
 .header-fixed .header-line-top-compare, .header-fixed .header-line-top-liked {
@@ -10921,7 +10921,7 @@ blockquote:after, blockquote:before {
 .search-from .icon {
     width: .875rem;
     height: 1.25rem;
-    fill: #533f34
+    fill: #43413d
 }
 
 .search-from input {
@@ -10929,8 +10929,8 @@ blockquote:after, blockquote:before {
     margin-bottom: 0;
     font-size: .875rem;
     line-height: 1.375rem;
-    border: .125rem solid #533f34;
-    color: #533f34
+    border: .125rem solid #43413d;
+    color: #43413d
 }
 
 .search-from input::-webkit-input-placeholder {
@@ -10946,7 +10946,7 @@ blockquote:after, blockquote:before {
 }
 
 .search-from input:focus {
-    border: 2px solid #725748
+    border: 2px solid #43413d
 }
 
 .search-from .dropdown-pane {
@@ -12363,4 +12363,10 @@ blockquote:after, blockquote:before {
 }
 header .header-line-top .menu li.active a {
     color: #e6e6e8!important;
+}
+.inline-block-item .header-phone-number a {
+    color: #43413d;
+}
+.header-block-info .header-block-info-link {
+    color: #43413d;
 }

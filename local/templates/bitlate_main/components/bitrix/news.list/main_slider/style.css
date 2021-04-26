@@ -1,0 +1,50 @@
+body .main-slider-banner .main-slider-mobile {
+    display: none;
+}
+@media only screen and (max-width: 500px) {
+/*    .main-slider-mobile {
+        display: none;
+    }*/
+    .b-inner-content-mobile-banner {
+        height: 70vh;
+    }
+    .main-slider-mobile .main-slider-caption {
+        margin-top: 33px;
+        margin-bottom: .3125rem;
+        line-height: 1.875rem;
+        font-size: 1.75rem;
+        font-weight: 900;
+        color: #fff;
+        font-family: 'Parangon';
+    }
+    .main-slider-mobile .main-slider-desc {
+        font-family: 'Parangon';
+        font-size: 13px;
+        margin-bottom: 1.5625rem;
+        color: #fff;
+    }
+    .main-slider-mobile span {
+        display: block;
+        white-space: normal;
+    }
+    .shop_now {
+        display: block;
+        font-family: 'Parangon';
+        color: #fff;
+        font-size: 22px;
+        padding: 5px;
+        cursor: pointer;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        width: max-content;
+        margin-top: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .b-mobile-banner-content {
+        margin-left: 10px;
+    }
+    .b-inner-content-mobile-banner .container {
+        margin-left: 10px;
+    }
+}

@@ -5168,7 +5168,7 @@ select[multiple] {
     width: 1.3125rem;
     height: 2rem;
     margin-right: .5rem;
-    fill: #d8192b
+    fill: #43413d
 }
 
 .header-phone .header-phone-number {
@@ -5201,7 +5201,7 @@ select[multiple] {
     width: 2.125rem;
     height: 1.75rem;
     margin-right: .625rem;
-    fill: #d8192b
+    fill: #43413d
 }
 
 .header-block-info .header-block-info-link {
@@ -5216,7 +5216,7 @@ select[multiple] {
     line-height: 1.125rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #666
+    color: #43413d
 }
 
 .header-fixed .header-line-top-compare, .header-fixed .header-line-top-liked {
@@ -9810,7 +9810,7 @@ blockquote:after, blockquote:before {
 .search-from .icon {
     width: .875rem;
     height: 1.25rem;
-    fill: #264f85
+    fill: #43413d
 }
 
 .search-from input {

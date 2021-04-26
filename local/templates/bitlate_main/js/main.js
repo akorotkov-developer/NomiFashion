@@ -33,17 +33,19 @@ var breakpoints = {
 }
 
 function initOwl() {
-    var $mainSlider      = $('.main-slider'),
-        $mainBanner      = $('.main-banner'),
-        $mainNews        = $('.main-news-carousel'),
-        $mainBrand       = $('.main-brand-carousel'),
-        $productPreview  = $('.product-slider'),
-        $productPack     = $('.product-pack-carousel'),
-        $productSet      = $('.product-set-carousel'),
-        $productCompare  = $('.product-compare-carousel'),
-        $productSeeIt    = $('.product-carousel'),
-        $innerGallery    = $('.inner-carousel'),
-        $innerTeam       = $('.inner-team');
+    var $mainSlider       = $('.main-slider'),
+        $mainSliderMobile = $('.main-slider-mobile'),
+        $mainBanner       = $('.main-banner'),
+        $mainNews         = $('.main-news-carousel'),
+        $mainBrand        = $('.main-brand-carousel'),
+        $productPreview   = $('.product-slider'),
+        $productPack      = $('.product-pack-carousel'),
+        $productSet       = $('.product-set-carousel'),
+        $productCompare   = $('.product-compare-carousel'),
+        $productSeeIt     = $('.product-carousel'),
+        $innerGallery     = $('.inner-carousel'),
+        $innerTeam        = $('.inner-team');
+
 
     if ($mainSlider.length) {
         var itemLength = $mainSlider.find('.item').length,
@@ -62,6 +64,24 @@ function initOwl() {
             params['dots'] = false;
         }
         $mainSlider.owlCarousel(params);
+    }
+    if ($mainSliderMobile.length) {
+        var itemLength = $mainSliderMobile.find('.item').length,
+            params = {
+                items: 1,
+                center: true,
+                navText: [],
+                autoplay: false
+            },
+            medium = $mainSliderMobile.parent().hasClass('medium');
+        if (itemLength > 1) {
+            params['loop'] = true;
+            params['nav'] = (medium) ? false : true;
+        } else {
+            params['loop'] = false;
+            params['dots'] = false;
+        }
+        $mainSliderMobile.owlCarousel(params);
     }
     if ($mainBanner.length) {
         $mainBanner.each(function(){
