@@ -3,7 +3,7 @@ $this->setFrameMode(true);?>
 
 <?if (!empty($arResult['ITEMS'])):?>
     <div class="container row">
-        <div class="owl-carousel main-banner hide-for-small-only is-lazy" data-slideout-ignore>
+        <div class="owl-carousel main-banner hide-for-small-only is-lazy sadfsdfdsf" data-slideout-ignore>
             <?foreach ($arResult['ITEMS'] as $arItem):
                 if (intval($arItem['PREVIEW_PICTURE'])):
                     $pic = CFile::ResizeImageGet($arItem['PREVIEW_PICTURE'], array('width' => 385, 'height' => 210), BX_RESIZE_IMAGE_EXACT, true);?>

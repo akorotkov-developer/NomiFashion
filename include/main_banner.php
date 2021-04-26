@@ -54,7 +54,7 @@
         ),
         false
     );?>
-    <?$APPLICATION->IncludeComponent(
+    <?/*$APPLICATION->IncludeComponent(
         "bitrix:news.list",
         "main_banner_slider",
         array(
@@ -109,5 +109,5 @@
             "USE_LAZY_LOAD" => $USE_LAZY_LOAD,
         ),
         false
-    );?>
+    );*/?>
 </div>
