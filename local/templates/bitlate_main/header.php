@@ -299,21 +299,33 @@ global $USER;
                     <?endif;?>
                 </ul>
             </div>
-            <?$APPLICATION->IncludeComponent("bitrix:menu", "header_main_menu", array(
-                    "ROOT_MENU_TYPE" => "main",
-                    "MENU_CACHE_TYPE" => "Y",
-                    "MENU_CACHE_TIME" => "36000000",
-                    "MENU_CACHE_USE_GROUPS" => "Y",
-                    "MENU_CACHE_GET_VARS" => array(
-                    ),
-                    "MAX_LEVEL" => "2",
-                    "USE_EXT" => "Y",
-                    "ALLOW_MULTI_SELECT" => "N",
-                    "CHILD_MENU_TYPE" => "left",
-                    "DELAY" => "N",
-                ),
-                false
-            );?>
+
+            <nav class="header-main-menu header-menu-fixed hide-for-small-only hide-for-medium-only hide-for-large-only">
+                <div class="container row">
+                    <div class="b-main_menu_top">
+                        <?$APPLICATION->IncludeComponent("bitrix:main.include", "",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH" => SITE_DIR . "include/top_menu.php"
+                            ),
+                            false
+                        );?>
+
+                        <div class="main-menu-right-button">
+                            <a href="javascript:;" class="burger-main-menu inline-block-item vertical-middle">
+                                <svg class="icon icon-burger" style="width: 20px; height: 20px;vertical-align: middle;fill: #43413d;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M112 240l800 0 0 48-800 0 0-48ZM112 480l800 0 0 48-800 0 0-48ZM112 736l800 0 0 48-800 0 0-48Z" /></svg>
+                            </a>
+                            <div class="b-hidden-menu">
+                                <ul class="hidden_ul_main_menu">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+            </nav>
+
         </header>
         <?$classSection = "";
         $isSearch = ($APPLICATION->GetCurDir() == $templateOptions['url_catalog_search'] && isset($_REQUEST['q']));

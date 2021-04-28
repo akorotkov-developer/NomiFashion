@@ -539,12 +539,12 @@ $(document).ready(function() {
         }
     });
     
-    function mainMenuArrowPosition(){
+/*    function mainMenuArrowPosition(){
         var $menu = $('.header-main-menu-other'),
             left = $menu.offset().left,
             width = $menu.width();
         $('.header-main-menu-other .header-main-menu-dropdown-arrow').css({'left': left + width/2 - 10});
-    }
+    }*/
     
     function hsMainMenuItems(action) {
         if ($headerMenu.is(':visible')) {
@@ -672,7 +672,7 @@ $(document).ready(function() {
         }
     }
     
-    hsMainMenuItems('hide');
+    /*hsMainMenuItems('hide');*/
     
     function hideCustomMenu()
     {

@@ -29,4 +29,21 @@ $( document ).ready(function() {
             $(this).text('Скрыть');
         }
     });
+
+    /**Пройдемся по верхнему меню и перенесем лишние пункты меню в бургер*/
+    var totalWidth = 0;
+    $(".top_menu li").each(function (index, el) {
+        totalWidth += $(el).innerWidth();
+        if (totalWidth > 1100) {
+            $(".hidden_ul_main_menu").append($(el));
+        }
+    });
+
+    /**Зададим data-special для всех блоков*/
+    $(".top_child").each(function (index, el) {
+        if ($(el).parents('.b-hidden-menu').length == 0) {
+            var text = $(el).siblings('a').html();
+            $(el).find('ul').attr('data-special', text);
+        }
+    });
 });
