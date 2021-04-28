@@ -222,7 +222,7 @@ function initOwl() {
                 itemLength = $self.children('.item').length,
                 params = {
                     items: 1,
-                    margin: -1,
+                    margin: 50,
                     lazyLoad: isLazy,
                     dragEndSpeed: 100,
                     navText: [],

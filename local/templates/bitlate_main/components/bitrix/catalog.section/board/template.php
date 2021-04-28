@@ -247,15 +247,15 @@ if (!empty($arResult['ITEMS']))
             <?if (in_array('action', $itemType) && $arParams["TAB_TYPE"]):?>
                 <div class="row">
                     <div class="xlarge-6 columns columns-info">
-                        <div class="name">
-                            <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="name"><span><? echo $productTitle; ?></span></a>
-                        </div>
+                        <!--<div class="name">
+                            <a href="<?/* echo $arItem['DETAIL_PAGE_URL']; */?>" class="name"><span><?/* echo $productTitle; */?></span></a>
+                        </div>-->
             <?else:?>
-                <div class="name">
-                    <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="name"><span><? echo $productTitle; ?></span></a>
+                <div class="name display_none">
+                    <a href="<?/* echo $arItem['DETAIL_PAGE_URL']; */?>" class="name"><span><?/* echo $productTitle; */?></span></a>
                 </div>
             <?endif;?>
-            <div id="<? echo $arItemIDs['PRICE']; ?>_block">
+            <div id="<? echo $arItemIDs['PRICE']; ?>_block" class="display_none">
                 <?if ($isPriceComposite == "Y" && $arParams["REQUEST_LOAD"] == "N"):?>
                     <?$frame = $this->createFrame($arItemIDs['PRICE'] . "_block", false)->begin();?>
                 <?endif;?>

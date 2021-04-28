@@ -11215,7 +11215,7 @@ blockquote:after, blockquote:before {
 }
 
 .product-grid .item.hover-elements:hover {
-    height: auto;
+    /*height: auto;*/
     border-color: #533f34;
 }
 
