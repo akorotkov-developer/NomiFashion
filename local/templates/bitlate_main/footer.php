@@ -92,6 +92,15 @@ $isSearch = ($APPLICATION->GetCurDir() == $templateOptions['url_catalog_search']
                     </div>
                     <!--noindex-->
                     <nav class="footer-main-menu inline-block-item show-for-xlarge">
+                        <?$APPLICATION->IncludeComponent("bitrix:main.include", "",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH" => SITE_DIR . "include/bottom_menu.php"
+                            ),
+                            false
+                        );?>
+                        <span class="show_all_bottom_menu" data-opened="false">Показать все</span>
+
                         <?$APPLICATION->IncludeComponent(
                             "bitrix:menu", 
                             "footer", 
