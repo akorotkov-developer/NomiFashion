@@ -176,3 +176,20 @@ ul.top_menu li a:hover {
 .b-hidden-menu .top_child .container.row {
     display: none;
 }
+/*@media screen and (max-width: 517px) {
+    .main-product-tabs .container {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 499px) {
+    .main-product-tabs .container {
+        width: 100%;
+    }
+    .products-flex-grid .products-flex-item {
+        width: 150px;
+    }
+}*/
+/*
+.product-grid .item .img-wrap {
+    margin-right: 25px;
+}*/
