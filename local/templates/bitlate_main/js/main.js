@@ -71,7 +71,7 @@ function initOwl() {
                 items: 1,
                 center: true,
                 navText: [],
-                autoplay: false
+                autoplay: true
             },
             medium = $mainSliderMobile.parent().hasClass('medium');
         if (itemLength > 1) {

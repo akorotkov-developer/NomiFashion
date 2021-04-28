@@ -1,1 +1,1 @@
-<img width="150" alt="logo.png" src="<?= SITE_TEMPLATE_PATH?>/images/logo_new.png" height="76" title="Официальный интернет-магазин одежды NOMI">&nbsp;<br>
+<img width="150" alt="logo.png" src="<?= SITE_TEMPLATE_PATH?>/images/logo.svg" height="76" title="Официальный интернет-магазин одежды NOMI">&nbsp;<br>

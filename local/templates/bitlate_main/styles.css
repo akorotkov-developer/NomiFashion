@@ -186,6 +186,10 @@ ul.top_menu li a:hover {
 .top_menu .top_child .container.row {
     max-width: 550px;
 }
+.header-main-menu .container.row {
+    padding-left: 0px;
+    padding-right: 0px;
+}
 /*@media screen and (max-width: 517px) {
     .main-product-tabs .container {
         width: 100%;

@@ -134,7 +134,7 @@ global $USER;
     </nav>
     <?$headerClass = "";
     if ($templateOptions['main_menu_pos'] == 'fix') {
-        $headerClass .= ' menu-fixed';
+        /*$headerClass .= ' menu-fixed';*/
     }
     if ($templateOptions['use_lazy_load'] == 'Y') {
         $headerClass .= ' page-lazy';
@@ -300,7 +300,7 @@ global $USER;
                 </ul>
             </div>
 
-            <nav class="header-main-menu header-menu-fixed hide-for-small-only hide-for-medium-only hide-for-large-only">
+            <nav class="header-main-menu hide-for-small-only hide-for-medium-only hide-for-large-only">
                 <div class="container row">
                     <div class="b-main_menu_top">
                         <?$APPLICATION->IncludeComponent("bitrix:main.include", "",

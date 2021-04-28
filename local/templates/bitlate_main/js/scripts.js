@@ -32,10 +32,15 @@ $( document ).ready(function() {
 
     /**Пройдемся по верхнему меню и перенесем лишние пункты меню в бургер*/
     var totalWidth = 0;
+    var i = 0;
     $(".top_menu li").each(function (index, el) {
         totalWidth += $(el).innerWidth();
         if (totalWidth > 1100) {
+            i++;
             $(".hidden_ul_main_menu").append($(el));
+        }
+        if (i == 0) {
+            $('.main-menu-right-button').hide();
         }
     });
 

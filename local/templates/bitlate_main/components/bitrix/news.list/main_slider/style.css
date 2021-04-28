@@ -1,10 +1,13 @@
-body .main-slider-banner .main-slider-mobile {
+.main-slider-banner .main-slider-mobile {
     display: none;
 }
 @media only screen and (max-width: 500px) {
-/*    .main-slider-mobile {
+    body #page section .main-slider {
         display: none;
-    }*/
+    }
+    body .main-slider-banner .main-slider-mobile {
+        display: block;
+    }
     .b-inner-content-mobile-banner {
         height: 70vh;
     }
