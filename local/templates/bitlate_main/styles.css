@@ -87,12 +87,11 @@ ul.top_menu {
 }
 ul.top_menu li {
     display: inline; /* Отображать как строчный элемент */
-    margin-right: 5px; /* Отступ слева */
-    padding: 3px; /* Поля вокруг текста */
+    padding: 5px; /* Поля вокруг текста */
     font-size: 14px;
 }
 ul.top_menu {
-    max-width: 1100px;
+    max-width: 930px;
     overflow: hidden;
     height: 30px;
     float: left;
@@ -111,13 +110,14 @@ ul.top_menu .top_child {
     left: 0px;
     padding-top: 15px;
     padding-left: 10%;
-    min-height: 302px;
+    min-height: 390px;
 }
 ul.top_menu li:hover .top_child {
     display: block;
 }
 ul.top_menu li a:hover {
     text-decoration: underline;
+    font-weight: bold;
 }
 .top_menu .top_child ul li {
     display: inherit;
@@ -126,12 +126,12 @@ ul.top_menu li a:hover {
     display: block;
 }
 .top_child ul {
-    -webkit-columns: 200px 2;
-    -moz-columns: 200px 2;
-    columns: 200px 2;
-    -webkit-column-gap: 30px;
-    -moz-column-gap: 30px;
-    column-gap: 30px;
+    -webkit-columns: 50px 2;
+    -moz-columns: 50px 2;
+    columns: 50px 2;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
 }
 .top_menu [data-special]::after {
     content: attr(data-special);
@@ -139,7 +139,7 @@ ul.top_menu li a:hover {
     position: absolute;
     font-size: 170px;
     left: 10%;
-    bottom: 0px;
+    bottom: 20px;
     font-weight: bold;
     color: #eceeef;
     z-index: -1;
@@ -175,6 +175,13 @@ ul.top_menu li a:hover {
 }
 .b-hidden-menu .top_child .container.row {
     display: none;
+}
+.bottom-menu-catalog-menu ul li a {
+    color: #43413d;
+    font-size: 13px;
+}
+.top_menu .top_child .container.row {
+    max-width: 550px;
 }
 /*@media screen and (max-width: 517px) {
     .main-product-tabs .container {

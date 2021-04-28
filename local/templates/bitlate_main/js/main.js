@@ -476,14 +476,14 @@ $(document).ready(function() {
         $page = $('#page'),
         $mobileMenu = $('#mobile-menu'),
         $headerMenu = $('.header-main-menu'),
-        $headerMenuFixed = $('.header-menu-fixed'),
+       /* $headerMenuFixed = $('.header-menu-fixed'),*/
         $headerMobileFixed = $('.header-mobile-fixed'),
         $headerMenuWrap = $('#header-main-menu-wrap');
     window['var'] = {
         menuOffsetTop: 0,
         menuScrollTop: 0,
-        menuPositionTop: $headerMenuFixed.position().top,
-        menuHeight: $headerMenuFixed.outerHeight(),
+        /*menuPositionTop: $headerMenuFixed.position().top,*/
+        /*menuHeight: $headerMenuFixed.outerHeight(),*/
         isMenuFixed: $page.hasClass('menu-fixed')
     };
     window['func'] = {};
@@ -616,16 +616,16 @@ $(document).ready(function() {
     
         if ($.inArray(foundationScreenOld, ['xlarge', 'xxlarge']) !== -1) {
             if (scrTop > window.var.menuPositionTop + window.var.menuScrollTop) {
-                $headerMenuFixed.css('top', window.var.menuOffsetTop);
+                $/*headerMenuFixed.css('top', window.var.menuOffsetTop);*/
                 $page.addClass('is-fixed');
             } else {
-                $headerMenuFixed.css('top', 0);
+                /*$headerMenuFixed.css('top', 0);*/
                 $page.removeClass('is-fixed');
             }
         }
         if ($.inArray(foundationScreenOld, ['small', 'medium', 'large']) !== -1) {
             $page.addClass('is-fixed');
-            $headerMenuFixed.css('top', top);
+            /*$headerMenuFixed.css('top', top);*/
             if (window.var.menuScrollTop) {
                 top = (scrTop > window.var.menuScrollTop) ? 0 : window.var.menuScrollTop - scrTop;
             }
@@ -774,8 +774,8 @@ $(document).ready(function() {
             foundationScreenOld = foundationScreenNew;
             if (window.var.isMenuFixed) {
                 $page.removeClass('is-fixed');
-                window.var.menuHeight = $headerMenuFixed.outerHeight();
-                window.var.menuPositionTop = $headerMenuFixed.position().top;
+                /*window.var.menuHeight = $headerMenuFixed.outerHeight();*/
+                /*window.var.menuPositionTop = $headerMenuFixed.position().top;*/
                 if (headerFixedBX !== undefined) {
                     headerFixedBX();
                 } else {
