@@ -48,3 +48,6 @@ body .main-slider-banner .main-slider-mobile {
         margin-left: 10px;
     }
 }
+.displaynone {
+    display: none!important;
+}

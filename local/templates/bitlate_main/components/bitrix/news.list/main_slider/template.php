@@ -15,7 +15,9 @@ $this->setFrameMode(true);?>
                 <div class="item vertical-middle" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                     <<?=$blockSelector?><?if ($detailUrl):?> href="<?=$detailUrl?>"<?endif;?> class="background <?=($arItem['PROPERTIES']['STYLE']['VALUE_XML_ID'] == 'white') ? 'white' : 'black'?>" style="background-image:url(<?=$pic['src']?>);">
                         <span class="container row">
-                            <span class="main-slider-caption"><?=$arItem['~NAME']?></span>
+                            <span class="main-slider-caption <?php if ($arItem['PROPERTIES']['HIDE_TITLE_DESKTOP']['VALUE'] != '') { echo 'displaynone';}?>">
+                                <?=$arItem['~NAME']?>
+                            </span>
                             <span class="main-slider-desc"><?=$arItem['PREVIEW_TEXT']?></span>
                             <?if ($detailUrl):?>
                                 <span class="button hide-for-small-only"><?=GetMessage("MORE")?></span>
@@ -38,7 +40,8 @@ $this->setFrameMode(true);?>
                 <div class="background b-inner-content-mobile-banner" style="background-image:url(<?=$picMobile['src']?>); background-size: cover;
                         background-repeat: no-repeat;">
                     <span class="container row">
-                        <span class="main-slider-caption" <?php if ($arItem['PROPERTIES']['COLOR_TITLE_BANNER_MOBILE']['~VALUE'] != '') {?>style="color: <?= $arItem['PROPERTIES']['COLOR_TITLE_BANNER_MOBILE']['VALUE']?>"<?php }?>>
+                        <span class="main-slider-caption <?php if ($arItem['PROPERTIES']['HIDE_TITLE_MOBILE']['VALUE'] != '') { echo 'displaynone';}?>"
+                              <?php if ($arItem['PROPERTIES']['COLOR_TITLE_BANNER_MOBILE']['~VALUE'] != '') {?>style="color: <?= $arItem['PROPERTIES']['COLOR_TITLE_BANNER_MOBILE']['VALUE']?>"<?php }?>>
                             <?=$arItem['PROPERTIES']['TITLE_MOBILE']['~VALUE']?>
                         </span>
                         <span class="main-slider-desc custom_border_<?= $i?>" <?php if ($arItem['PROPERTIES']['COLOR_TITLE_BANNER_MOBILE']['VALUE'] != '') {?>style="color: <?= $arItem['PROPERTIES']['COLOR_TITLE_BANNER_MOBILE']['VALUE']?>"<?php }?>>
