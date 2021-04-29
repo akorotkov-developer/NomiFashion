@@ -387,12 +387,14 @@ global $USER;
                             );?>
                         </div>
                     </div>
-                    <?$APPLICATION->IncludeFile(
+                    <?
+                    /**Блок новостей*/
+                    /*$APPLICATION->IncludeFile(
                         SITE_DIR . "include/news_advantages_brands.php",
                         Array(
                             'NEWS_TYPE' => 3,
                         )
-                    );?>
+                    );*/?>
 
                 <div class="hidden_text_on_main_page">
                     <div class="container row">

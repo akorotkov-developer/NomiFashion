@@ -99,7 +99,7 @@ $isSearch = ($APPLICATION->GetCurDir() == $templateOptions['url_catalog_search']
                             ),
                             false
                         );?>
-                        <span class="show_all_bottom_menu" data-opened="false">Показать все</span>
+                        <!--<span class="show_all_bottom_menu" data-opened="false">Показать все</span>-->
 
                         <?$APPLICATION->IncludeComponent(
                             "bitrix:menu", 
