@@ -1,3 +1,29 @@
 .display_none {
     display: none!important;
 }
+.products-flex-item-2 {
+    float: left;
+    margin: -1px 0 0 -1px;
+    width: 226px;
+    height: 800px;
+    -webkit-transition: border-color .25s ease;
+    transition: border-color .25s ease;
+}
+.products-flex-item-2 .item {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+.product-seeit .name.display_seeit_none {
+    display: none!important;
+}
+.product-grid-recomend .b-banner-inside-product {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 300px;
+}
+/*
+.products-flex-item-custom-height {
+    height: 800px;
+}*/

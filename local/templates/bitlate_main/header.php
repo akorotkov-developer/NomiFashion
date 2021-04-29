@@ -379,6 +379,13 @@ global $USER;
                                 </div>
                             <?endforeach;?>
                         </div>
+
+                        <!-- Перебивочные баннеры -->
+                        <div class="container row">
+                            <?$APPLICATION->IncludeFile(
+                                SITE_DIR . "include/banners_main_page.php"
+                            );?>
+                        </div>
                     </div>
                     <?$APPLICATION->IncludeFile(
                         SITE_DIR . "include/news_advantages_brands.php",

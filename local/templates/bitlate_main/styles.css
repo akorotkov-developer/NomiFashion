@@ -190,6 +190,11 @@ ul.top_menu li a:hover {
     padding-left: 0px;
     padding-right: 0px;
 }
+.b-banner-inside-product {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 16px;
+}
 /*@media screen and (max-width: 517px) {
     .main-product-tabs .container {
         width: 100%;

@@ -8,11 +8,28 @@ var productGridOptions = {
         duration: 0,
         easing: 'linear',
         queue: false
-    }
+    },
+    getSortData: {
+        order: '[data-order]'
+    },
+    sortBy : 'order'
 };
 
 var profileGridOptions = {
     itemSelector: '.profile-column-item',
+    animationOptions: {
+        duration: 0,
+        easing: 'linear',
+        queue: false
+    },
+    getSortData: {
+        order: '[data-order]'
+    },
+    sortBy : 'order'
+}
+
+var profileGridOptions2 = {
+    itemSelector: '.block-item',
     animationOptions: {
         duration: 0,
         easing: 'linear',
@@ -809,7 +826,8 @@ $(document).ready(function() {
     //Позиционирование блоков в ЛК
     
     $('.profile-column-container').isotope(profileGridOptions);
-    
+    $('.b-blocks-container').isotope(profileGridOptions2);
+
     //Сетка продуктов на главной
     
     $('.main-product-tabs .tabs').on('change.zf.tabs', function(e, $tab) {

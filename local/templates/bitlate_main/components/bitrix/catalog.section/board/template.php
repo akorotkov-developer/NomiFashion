@@ -28,7 +28,7 @@ $this->setFrameMode(true);
         <?endif;?>
         <div class="catalog-content" id="catalog-content">
     <?endif;?>
-    <div class="products-flex-grid product-grid<?if (!$arParams["TAB_TYPE"]):?> container<?endif;?>">
+    <div class="products-flex-grid product-grid<?if (!$arParams["TAB_TYPE"]):?> container<?endif;?> s">
 <?endif;?>
 <?
 if (!empty($arResult['ITEMS']))
@@ -74,7 +74,11 @@ if (!empty($arResult['ITEMS']))
                 <div class="h2"><?=$arParams["PAGER_TITLE"]?></div>
                 <div class="owl-carousel product-carousel product-grid<?if ($arParams['SUB_SLIDER'] == "Y"):?> product-carousel-inner<?endif;?>"<?if ($arParams['SLIDER_ZINDEX'] > 0):?> style="z-index:<?=$arParams['SLIDER_ZINDEX']?>;"<?endif;?>>
     <?endif;?>
-<?foreach ($arResult['ITEMS'] as $key => $arItem) {
+
+
+<?php
+$itemsCount = 1;
+foreach ($arResult['ITEMS'] as $key => $arItem) {
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], $strElementEdit);
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], $strElementDelete, $arElementDeleteParams);
 	$strMainID = $this->GetEditAreaId($arItem['ID'].$arParams['SLIDER_ZINDEX']);
@@ -200,9 +204,10 @@ if (!empty($arResult['ITEMS']))
     $isShowPreviewPict = false;
     if ($typePict == 'square' || $typePict == 'dropdown') {
         $isShowPreviewPict = NLApparelshopUtils::isShowPreviewPict($arItem);
-    }?>
+    }
+    ?>
     <?if ($arParams["TEMPLATE_THEME"] != 'slider'):?>
-        <div class="products-flex-item<?=$itemClass?>" id="<? echo $strMainID; ?>">
+        <div class="products-flex-item products-flex-item-custom-height<?=$itemClass?>" id="<? echo $strMainID; ?>" data-order="<?= $itemsCount?>">
     <?endif;?>
         <div class="item column text-center hover-elements"<?if ($arParams["TEMPLATE_THEME"] == 'slider'):?> id="<? echo $strMainID; ?>"<?endif;?>>
             <?if (!in_array('prodday', $itemType) && !in_array('action', $itemType) && count($itemType) > 0):?>
@@ -247,15 +252,15 @@ if (!empty($arResult['ITEMS']))
             <?if (in_array('action', $itemType) && $arParams["TAB_TYPE"]):?>
                 <div class="row">
                     <div class="xlarge-6 columns columns-info">
-                        <!--<div class="name">
-                            <a href="<?/* echo $arItem['DETAIL_PAGE_URL']; */?>" class="name"><span><?/* echo $productTitle; */?></span></a>
-                        </div>-->
+                        <div class="name">
+                            <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="name"><span><? echo $productTitle; ?></span></a>
+                        </div>
             <?else:?>
-                <div class="name display_none">
-                    <a href="<?/* echo $arItem['DETAIL_PAGE_URL']; */?>" class="name"><span><?/* echo $productTitle; */?></span></a>
+                <div class="name display_seeit_none">
+                    <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="name"><span><? echo $productTitle; ?></span></a>
                 </div>
             <?endif;?>
-            <div id="<? echo $arItemIDs['PRICE']; ?>_block" class="display_none">
+            <div id="<? echo $arItemIDs['PRICE']; ?>_block">
                 <?if ($isPriceComposite == "Y" && $arParams["REQUEST_LOAD"] == "N"):?>
                     <?$frame = $this->createFrame($arItemIDs['PRICE'] . "_block", false)->begin();?>
                 <?endif;?>
@@ -921,13 +926,23 @@ if (!empty($arResult['ITEMS']))
             </div>
         </div>
     <?if ($arParams["TEMPLATE_THEME"] != 'slider'):?>
+
         </div>
+
+        <?php
+        if ($itemsCount == 4) {?>
+            <!-- Здесь предварительно должны находится баннеры-->
+        <?php } ?>
+
+        <?php $itemsCount++;?>
     <?endif;?>
 <?}?>
 <?if ($arParams["TEMPLATE_THEME"] == 'slider'):?>
+
         </div>
     </div>
 <?endif;?>
+
 <? 
 }
 ?>
@@ -988,6 +1003,7 @@ if (isset($arResult['NAV_RESULT']->NavPageCount) && ($arResult['NAV_RESULT']->Na
         </div>
     </div>
     <?if (!$arParams["TAB_TYPE"]):?>
+
         </div>
     <?endif;?>
 <?endif;?>
