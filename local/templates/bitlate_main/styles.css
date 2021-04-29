@@ -106,6 +106,7 @@ ul.top_menu {
 }
 ul.top_menu .top_child {
     display: none;
+    justify-content: center;
     position: absolute;
     width: 100%;
     background-color: #fff;
@@ -113,11 +114,10 @@ ul.top_menu .top_child {
     z-index: 100;
     left: 0px;
     padding-top: 15px;
-    padding-left: 10%;
     min-height: 390px;
 }
 ul.top_menu li:hover .top_child {
-    display: block;
+    display: flex;
 }
 ul.top_menu li a:hover {
     text-decoration: underline;
@@ -183,8 +183,11 @@ ul.top_menu li a:hover {
     color: #43413d;
     font-size: 13px;
 }
-.top_menu .top_child .container.row {
-    max-width: 550px;
+.top_child ul {
+    margin-left: 5px;
+    display: block;
+    width: 40%;
+    float: left;
 }
 .header-main-menu .container.row {
     padding-left: 0px;
