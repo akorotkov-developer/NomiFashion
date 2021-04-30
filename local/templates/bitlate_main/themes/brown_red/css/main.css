@@ -11445,7 +11445,6 @@ blockquote:after, blockquote:before {
 .product-grid .name a span, .product-list .name a span {
     display: block;
     max-height: 2.5rem;
-    text-transform: uppercase;
     font-family: Arial, sans-serif;
 }
 
@@ -11459,7 +11458,7 @@ blockquote:after, blockquote:before {
 }
 
 .product-grid .price > .rub, .product-list .price > .rub {
-    font-size: 1.25rem
+    font-size: 16px;
 }
 
 .product-grid .price .old, .product-list .price .old {

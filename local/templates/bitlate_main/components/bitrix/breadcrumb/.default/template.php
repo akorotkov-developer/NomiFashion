@@ -26,20 +26,9 @@ for($index = 0; $index < $itemSize; $index++) {
         $link = $arResult[$index]["LINK"];
         $isSubBreadcrumbs = ($arSectionsTree[$link] != '') ? true : false;
         $subSections = "";
-        if ($isSubBreadcrumbs) {
-            foreach ($arSectionsTree as $arSection) {
-                if ($arSection['IBLOCK_SECTION_ID'] == $arSectionsTree[$link]['IBLOCK_SECTION_ID'] && $arSection['ID'] != $arSectionsTree[$link]['ID']) {
-                    $subSections .= '<li><a href="' . $arSection['SECTION_PAGE_URL'] . '">' . $arSection['NAME'] . '</a></li>';
-                }
-            }
-            if ($subSections != '') {
-                $subSections = '<ul id="bx_sub_breadcrumb_' . md5($link) . '" class="menu vertical dropdown-pane product-breadcrumbs-dropdown" data-dropdown data-hover="true" data-hover-pane="true">' . $subSections . '</ul>';
-            } else {
-                $isSubBreadcrumbs = false;
-            }
-        }
+
         $strReturn .= '
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="'.$arResult[$index]["LINK"].'" title="'.$title.'"'. (($isSubBreadcrumbs) ? ' data-toggle="bx_sub_breadcrumb_' . md5($link) . '"' : '') . ' itemprop="item" itemscope itemtype="http://schema.org/Thing"><span itemprop="name">' . $title . '</span></a><meta itemprop="position" content="' . ($index + 1) . '">' . $subSections . '</li>';
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="'.$arResult[$index]["LINK"].'" title="'.$title.'" itemprop="item" itemscope itemtype="http://schema.org/Thing"><span itemprop="name">' . $title . '</span></a><meta itemprop="position" content="' . ($index + 1) . '">' . $subSections . '</li>';
     } else {
         $strReturn .= '
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="item" itemscope itemtype="http://schema.org/Thing"><span itemprop="name">'.$title.'</span></span><meta itemprop="position" content="' . ($index + 1) . '"></li>';

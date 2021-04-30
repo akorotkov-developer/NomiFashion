@@ -215,6 +215,14 @@ ul.top_menu li a:hover {
         width: 100%
     }
 }
+@media screen and (max-width: 767px) {
+    header .header-logo.inline-block-item {
+        margin-left: 15%;
+    }
+}
+.mobile-menu .menu a:after {
+
+}
 
 /*@media screen and (max-width: 517px) {
     .main-product-tabs .container {

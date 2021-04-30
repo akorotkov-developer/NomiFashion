@@ -104,7 +104,6 @@ global $USER;
                         "MAX_LEVEL" => "2",
                         "USE_EXT" => "Y",
                         "ALLOW_MULTI_SELECT" => "N",
-                        "SUB_CLASS" => "mobile-menu-main",
                     )
                 );?>
                 <!--/noindex-->

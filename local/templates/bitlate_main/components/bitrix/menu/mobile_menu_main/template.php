@@ -3,7 +3,7 @@ $this->setFrameMode(true);
 
 if (!empty($arResult)):
     $previousLevel = 0;?>
-    <ul class="vertical menu<?if ($arParams["CHILD_MENU_TYPE"] != 'bottom'):?> mobile-menu-main<?endif;?>" data-drilldown data-wrapper="" data-back-button="<li class='js-drilldown-back'><a href='javascript:;'><?=getMessage('BACK')?></a></li>">
+    <ul class="vertical menu" data-drilldown data-wrapper="" data-back-button="<li class='js-drilldown-back'><a href='javascript:;'><?=getMessage('BACK')?></a></li>">
         <?foreach ($arResult as $itemIdex => $arItem):
             if ($arItem["DEPTH_LEVEL"] > 2) continue;?>
             <?if ($previousLevel && $arItem["DEPTH_LEVEL"] < $previousLevel):?>
