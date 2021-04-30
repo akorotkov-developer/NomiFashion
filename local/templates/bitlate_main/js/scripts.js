@@ -51,4 +51,23 @@ $( document ).ready(function() {
             $(el).find('ul').attr('data-special', text);
         }
     });
+
+    /**Клик по октрыванию мобильного подменю*/
+    $('.is_arrow_for_open_child.is-submenu-item').on('click', function(event) {
+        var dataUl = $(this).attr('data-subul');
+
+        var subUl = $('ul[data-ul="' + dataUl + '"]');
+
+        if (subUl.is(':hidden')) {
+            subUl.fadeIn();
+            if (!$(this).find('span').hasClass('active')) {
+                $(this).find('span').addClass('active');
+            }
+        } else {
+            $(this).find('span').removeClass('active');
+            subUl.fadeOut();
+        }
+
+        event.preventDefault();
+    });
 });

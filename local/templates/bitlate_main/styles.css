@@ -224,6 +224,59 @@ ul.top_menu li a:hover {
 
 }
 
+.menu.vertical li .is_arrow_for_open_child span {
+    top: .1875rem;
+    -webkit-transform: rotate(
+            135deg
+    );
+    transform: rotate(
+            135deg
+    );
+}
+.menu.vertical li .is_arrow_for_open_child.active span {
+    border-left: 1px solid #42403c;
+    border-bottom: 1px solid #42403c;
+}
+.menu.vertical li .is_arrow_for_open_child span.active {
+    top: .1875rem;
+    -webkit-transform: rotate(
+            135deg
+    );
+    transform: rotate(
+            135deg
+    );
+}
+.menu.vertical li .is_arrow_for_open_child span {
+    margin-left: 10px;
+    position: relative;
+    top: -.125rem;
+    display: inline-block;
+    margin-top: .3125rem;
+    margin-right: .6875rem;
+    width: 9px;
+    height: 9px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform: rotate(
+            -45deg
+    );
+    transform: rotate(
+            -45deg
+    );
+}
+ul.child_menu_mobile {
+    margin-left: 0px;
+    display: none;
+}
+.vertical.menu .is-drilldown-submenu .child_menu_mobile li.active a {
+    background-color: #afafb0;
+}
+.vertical.menu .is-drilldown-submenu .child_menu_mobile li.active {
+    overflow: hidden;
+}
+.vertical.menu .is-drilldown-submenu .child_menu_mobile {
+    background-color: #afafb0;
+}
 /*@media screen and (max-width: 517px) {
     .main-product-tabs .container {
         width: 100%;
