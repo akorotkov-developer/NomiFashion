@@ -294,3 +294,16 @@ ul.child_menu_mobile {
 .product-grid .item .img-wrap {
     margin-right: 25px;
 }*/
+
+.bx_order_make .cart-container-pay form input[type=submit] {
+    float: none;
+}
+.bx_order_make .cart-footer .button {
+    float: none;
+}
+.sale-paysystem-wrapper form {
+    text-align: center;
+}
+.cart-footer {
+    text-align: center;
+}
