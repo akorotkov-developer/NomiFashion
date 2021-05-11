@@ -94,7 +94,7 @@ ul.top_menu li {
     font-size: 14px;
 }
 ul.top_menu {
-    max-width: 930px;
+    max-width: 1150px;
     width: 100%;
     display: flex;
     justify-content: space-between;
