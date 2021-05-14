@@ -6876,7 +6876,7 @@ header .header-block-info-counter {
 }
 
 .inner-container .product-preview .product-slider .item.active {
-    border-color: #c02344
+    border-color: #43413d;
 }
 
 .inner-container .product-preview .product-slider .owl-nav .owl-next, .inner-container .product-preview .product-slider .owl-nav .owl-prev {
@@ -7703,7 +7703,7 @@ header .header-block-info-counter {
 }
 
 .product-accordion-tabs .tabs .tabs-title.is-active a {
-    border-color: #c02344;
+    border-color: #43413d;
     color: #000
 }
 
@@ -7720,7 +7720,7 @@ header .header-block-info-counter {
 }
 
 .product-accordion-tabs .product-accordion-tabs-item.is-active .accordion-title {
-    border-color: #c02344;
+    border-color: #43413d;
     color: #000;
     background-color: #fff
 }
@@ -8380,14 +8380,14 @@ header .header-block-info-counter {
     margin-right: .625rem;
     width: 3.5rem;
     height: 3.5rem;
-    border: .125rem solid #c02344;
+    border: .125rem solid #43413d;
     border-radius: 1.75rem
 }
 
 .cart .cart-empty .icon {
     width: 2.1875rem;
     height: 100%;
-    fill: #c02344
+    fill: #43413d;
 }
 
 .cart-caption {
@@ -9390,7 +9390,7 @@ header .header-block-info-counter {
 }
 
 .inner-menu-filter .menu .active a {
-    border-color: #c02344;
+    border-color: #43413d;
     color: #000
 }
 
