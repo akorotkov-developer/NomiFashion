@@ -31,7 +31,7 @@ if (!function_exists('buildMenuTree')) {
 $arTree = buildMenuTree($arResult);
 $arChildStore = [];
 foreach ($arTree as $arItem) {
-    if ($arItem['TEXT'] == 'Магазин') {
+    if ($arItem['TEXT'] == 'Каталог') {
         $arChildStore = $arItem['CHILDS'];
     }
 }
