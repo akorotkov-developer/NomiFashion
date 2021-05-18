@@ -8,7 +8,7 @@ $fieldCode = array(
 if ($NEWS_TYPE == 1 || $NEWS_TYPE == 3) {
     $fieldCode[] = "PREVIEW_PICTURE";
 }?>
-<?$APPLICATION->IncludeComponent(
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"main_news",
 	Array(
@@ -63,7 +63,7 @@ if ($NEWS_TYPE == 1 || $NEWS_TYPE == 3) {
 		"STRICT_SECTION_CHECK" => "N",
 		"USE_LAZY_LOAD" => $useLazyLoad
 	)
-);?>
+);*/?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"advantages",
