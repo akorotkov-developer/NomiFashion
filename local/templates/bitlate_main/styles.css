@@ -307,3 +307,36 @@ ul.child_menu_mobile {
 .cart-footer {
     text-align: center;
 }
+
+/*
+@media screen and (max-width: 517px) {
+    .container {
+        width: 31.3125rem;
+    }
+}*/
+
+@media screen and (max-width: 502px) {
+    .container {
+        width: 505px;
+        padding: 0px;
+    }
+    .products-flex-item {
+        width: 155px;
+    }
+    .products-flex-grid.product-grid.s {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

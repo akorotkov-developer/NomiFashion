@@ -477,7 +477,10 @@ function setPackVariation(target) {
 $(document).ready(function() {
     $(document).foundation();
 
+    /*
+    //Старый способ вывод карточек товара
     var $productGrid = $('.products-flex-grid').isotope(productGridOptions);
+    */
 
     var windowWidth = $(window).width(),
         foundationScreenOld = Foundation.MediaQuery.current,

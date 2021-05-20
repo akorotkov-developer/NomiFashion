@@ -9777,7 +9777,7 @@ iframe {
 
 .container {
     min-width: 16.3125rem;
-    width: 16.3125rem;
+    width: 505px;
     max-width: 100%;
     margin: 0 auto;
     padding-left: .625rem;
@@ -11306,7 +11306,7 @@ blockquote:after, blockquote:before {
 
 .products-flex-item {
     float: left;
-    margin: -1px 0 0 -1px;
+    margin: -1px 15px 0 -1px;
     width: 226px;
     height: 500px;
     -webkit-transition: border-color .25s ease;
