@@ -320,6 +320,9 @@ ul.child_menu_mobile {
         width: 505px;
         padding: 0px;
     }
+    .b-banner-inside-product {
+        padding-right: 0px;
+    }
     .products-flex-item {
         width: 155px;
     }

@@ -930,8 +930,13 @@ foreach ($arResult['ITEMS'] as $key => $arItem) {
         </div>
 
         <?php
-        if ($itemsCount == 4) {?>
-            <!-- Здесь предварительно должны находится баннеры-->
+        if ($itemsCount == 5) {?>
+            <!-- Перебивочные баннеры -->
+            <div class="container row perebiv_banners">
+                <?$APPLICATION->IncludeFile(
+                    SITE_DIR . "include/banners_main_page.php"
+                );?>
+            </div>
         <?php } ?>
 
         <?php $itemsCount++;?>

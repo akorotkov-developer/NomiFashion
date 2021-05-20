@@ -378,13 +378,6 @@ global $USER;
                                 </div>
                             <?endforeach;?>
                         </div>
-
-                        <!-- Перебивочные баннеры -->
-                        <div class="container row">
-                            <?$APPLICATION->IncludeFile(
-                                SITE_DIR . "include/banners_main_page.php"
-                            );?>
-                        </div>
                     </div>
                     <?
                     /**Блок новостей*/
