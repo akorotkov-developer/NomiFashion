@@ -70,4 +70,90 @@ $( document ).ready(function() {
 
         event.preventDefault();
     });
+
+    /*На мобильных устройствах проверим количество товаров и если оно не четное, то скроем последний элемент*/
+    var width = $( window ).width();
+    checkCountElements();
+
+
+    $( window ).resize(function() {
+        width = $( window ).width();
+        checkCountElements();
+    });
+    /***/
+
+    function checkCountElements() {
+        console.log('Попали сюда');
+        $(".product-grid-recomend .products-flex-grid").each(function (index, el){
+            var iElementCount = 0;
+            var lastEl;
+            $(el).find('.products-flex-item').each(
+                function (index2, el2) {
+                    iElementCount++;
+                    lastEl = el2;
+                }
+            );
+
+            if (iElementCount > 2 && iElementCount % 2 != 0 && width <= 500) {
+                $(lastEl).hide();
+            } else {
+                $(lastEl).show();
+            }
+        });
+
+        $(".product-grid-news .products-flex-grid").each(function (index, el){
+            var iElementCount = 0;
+            var lastEl;
+            $(el).find('.products-flex-item').each(
+                function (index2, el2) {
+                    iElementCount++;
+                    lastEl = el2;
+                }
+            );
+
+            if (iElementCount > 2 && iElementCount % 2 != 0 && width <= 500) {
+                $(lastEl).hide();
+            } else {
+                $(lastEl).show();
+            }
+        });
+
+        $(".product-grid-hits .products-flex-grid").each(function (index, el){
+            var iElementCount = 0;
+            var lastEl;
+            $(el).find('.products-flex-item').each(
+                function (index2, el2) {
+                    iElementCount++;
+                    lastEl = el2;
+                }
+            );
+
+            if (iElementCount > 2 && iElementCount % 2 != 0 && width <= 500) {
+                $(lastEl).hide();
+            } else {
+                $(lastEl).show();
+            }
+        });
+
+        $(".product-grid-discount .products-flex-grid").each(function (index, el){
+            var iElementCount = 0;
+            var lastEl;
+            $(el).find('.products-flex-item').each(
+                function (index2, el2) {
+                    iElementCount++;
+                    lastEl = el2;
+                }
+            );
+
+            if (iElementCount > 2 && iElementCount % 2 != 0 && width <= 500) {
+                $(lastEl).hide();
+            } else {
+                $(lastEl).show();
+            }
+        });
+    }
+
+    $('.select-tabs').on('change', function (e) {
+        setTimeout(checkCountElements, 4000);
+    });
 });
