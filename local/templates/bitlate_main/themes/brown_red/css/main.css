@@ -11274,8 +11274,10 @@ blockquote:after, blockquote:before {
 
 .product-grid .item .img-wrap {
     display: block;
-    height: auto;
-    line-height: 10.625rem
+    height: 288px;
+    line-height: 10.625rem;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
 }
 
 .product-grid .item .img-wrap img {
@@ -11308,7 +11310,7 @@ blockquote:after, blockquote:before {
     float: left;
     margin: -1px 15px 0 -1px;
     width: 226px;
-    height: 500px;
+    height: 450px;
     -webkit-transition: border-color .25s ease;
     transition: border-color .25s ease
 }
@@ -12368,4 +12370,15 @@ header .header-line-top .menu li.active a {
 }
 .header-block-info .header-block-info-link {
     color: #43413d;
+}
+
+
+@media screen and (max-width: 500px) {
+    .product-grid .item .img-wrap {
+        display: block;
+        height: 196px;
+    }
+    .products-flex-item {
+        height: 300px;
+    }
 }

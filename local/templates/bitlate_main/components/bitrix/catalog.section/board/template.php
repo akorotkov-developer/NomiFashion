@@ -235,20 +235,33 @@ foreach ($arResult['ITEMS'] as $key => $arItem) {
             } else {
                 $isNoPhoto =false;
             }?>
-            <div class="img-wrap">
-                <?if ($arParams["TEMPLATE_THEME"] != 'slider'):?>
-                    <img id="<? echo $arItemIDs['PICT']; ?>" src="<?=NLApparelshopUtils::getLoadSrc($pic['src'])?>" data-src="<?=$pic['src']?>" class="thumbnail lazy <?= ($isNoPhoto) ? 'element_custom_margin' : ''?>" alt="<? echo $productTitle; ?>">
-                <?else:?>
-                    <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>">
-                        <img id="<? echo $arItemIDs['PICT']; ?>" src="<?=NLApparelshopUtils::getLoadSrc($pic['src'])?>" data-src="<?=$pic['src']?>" class="thumbnail lazy <?= ($isNoPhoto) ? 'element_custom_margin' : ''?>" alt="<? echo $productTitle; ?>">
+
+ <!--           <?/*if ($arParams["TEMPLATE_THEME"] != 'slider'):*/?>
+                <div id="<?/* echo $arItemIDs['PICT']; */?>" class="img-wrap" style="background: url(<?/*=NLApparelshopUtils::getLoadSrc($pic['src'])*/?>">
+                </div>
+            <?/*else:*/?>
+                <a href="<?/* echo $arItem['DETAIL_PAGE_URL']; */?>">
+                    <div id="<?/* echo $arItemIDs['PICT']; */?>" class="img-wrap" style="background: url(<?/*=NLApparelshopUtils::getLoadSrc($pic['src'])*/?>">
+                    </div>
+                </a>
+            --><?/*endif;*/?>
+
+            <!--<div class="img-wrap" style="background: url()">
+                <?/*if ($arParams["TEMPLATE_THEME"] != 'slider'):*/?>
+                    <img id="<?/* echo $arItemIDs['PICT']; */?>" src="<?/*=NLApparelshopUtils::getLoadSrc($pic['src'])*/?>" data-src="<?/*=$pic['src']*/?>" class="thumbnail lazy <?/*= ($isNoPhoto) ? 'element_custom_margin' : ''*/?>" alt="<?/* echo $productTitle; */?>">
+                <?/*else:*/?>
+                    <a href="<?/* echo $arItem['DETAIL_PAGE_URL']; */?>">
+                        <img id="<?/* echo $arItemIDs['PICT']; */?>" src="<?/*=NLApparelshopUtils::getLoadSrc($pic['src'])*/?>" data-src="<?/*=$pic['src']*/?>" class="thumbnail lazy <?/*= ($isNoPhoto) ? 'element_custom_margin' : ''*/?>" alt="<?/* echo $productTitle; */?>">
                     </a>
-                <?endif;?>
+                <?/*endif;*/?>
+            </div>-->
+            <div id="<? echo $arItemIDs['SECOND_PICT']; ?>" class="img-wrap" style="background: url(<? echo (
+            !empty($arItem['PREVIEW_PICTURE_SECOND'])
+                ? $arItem['PREVIEW_PICTURE_SECOND']['SRC']
+                : $arItem['PREVIEW_PICTURE']['SRC']
+            ); ?>)">
             </div>
-            <img id="<? echo $arItemIDs['SECOND_PICT']; ?>" src="<? echo (
-				!empty($arItem['PREVIEW_PICTURE_SECOND'])
-				? $arItem['PREVIEW_PICTURE_SECOND']['SRC']
-				: $arItem['PREVIEW_PICTURE']['SRC']
-			); ?>" class="thumbnail" alt="<? echo $productTitle; ?>" style="display: none;">
+
             <?if (in_array('action', $itemType) && $arParams["TAB_TYPE"]):?>
                 <div class="row">
                     <div class="xlarge-6 columns columns-info">
@@ -930,7 +943,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem) {
         </div>
 
         <?php
-        if ($itemsCount == 5) {?>
+        if ($itemsCount == 5 && $APPLICATION->GetCurPage() == '/') {?>
             <!-- Перебивочные баннеры -->
             <div class="container row perebiv_banners">
                 <?$APPLICATION->IncludeFile(
