@@ -11278,6 +11278,7 @@ blockquote:after, blockquote:before {
     line-height: 10.625rem;
     background-size: cover!important;
     background-repeat: no-repeat!important;
+    background-position: center!important;
 }
 
 .product-grid .item .img-wrap img {
@@ -11310,7 +11311,7 @@ blockquote:after, blockquote:before {
     float: left;
     margin: -1px 15px 0 -1px;
     width: 226px;
-    height: 450px;
+    height: 420px;
     -webkit-transition: border-color .25s ease;
     transition: border-color .25s ease
 }

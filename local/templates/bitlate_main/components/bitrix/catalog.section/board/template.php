@@ -904,32 +904,36 @@ foreach ($arResult['ITEMS'] as $key => $arItem) {
                         <?elseif (in_array('prodday', $itemType) && $arParams['TAB_TYPE']):?>
                             </div>
                         <?endif;?>
-                        <div class="row row-count-cart bx_catalog_item_controls no_touch">
-                            <?if ('Y' == $arParams['USE_PRODUCT_QUANTITY']) {?>
-                                <div class="small-6 column">
-                                    <div class="product-count">
-                                        <div class="input-group">
-                                            <div class="input-group-button">
-                                                <button id="<? echo $arItemIDs['QUANTITY_DOWN']; ?>" class="button decrement" type="button">-</button>
-                                            </div>
-                                            <input class="input-group-field" type="number" id="<? echo $arItemIDs['QUANTITY']; ?>" name="<? echo $arParams["PRODUCT_QUANTITY_VARIABLE"]; ?>" value="<? echo $arItem['CATALOG_MEASURE_RATIO']; ?>" min="1" value="1">
-                                            <div class="input-group-button">
-                                                <button id="<? echo $arItemIDs['QUANTITY_UP']; ?>" class="button increment" type="button">+</button>
+
+                        <?php if (false) {?>
+                            <div class="row row-count-cart bx_catalog_item_controls no_touch">
+                                <?if ('Y' == $arParams['USE_PRODUCT_QUANTITY']) {?>
+                                    <div class="small-6 column">
+                                        <div class="product-count">
+                                            <div class="input-group">
+                                                <div class="input-group-button">
+                                                    <button id="<? echo $arItemIDs['QUANTITY_DOWN']; ?>" class="button decrement" type="button">-</button>
+                                                </div>
+                                                <input class="input-group-field" type="number" id="<? echo $arItemIDs['QUANTITY']; ?>" name="<? echo $arParams["PRODUCT_QUANTITY_VARIABLE"]; ?>" value="<? echo $arItem['CATALOG_MEASURE_RATIO']; ?>" min="1" value="1">
+                                                <div class="input-group-button">
+                                                    <button id="<? echo $arItemIDs['QUANTITY_UP']; ?>" class="button increment" type="button">+</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                <?}?>
+                                <div id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_catalog_item_controls_blockone" style="display: <? echo ($canBuy ? 'none' : ''); ?>;"><span class="bx_notavailable"><?
+                                    echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : GetMessage('CT_BCS_TPL_MESS_PRODUCT_NOT_AVAILABLE'));
+                                ?></span></div>
+                                <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" class="small-6 columns" style="display: <? echo ($canBuy ? '' : 'none'); ?>;">
+                                    <?foreach ($arItem['OFFERS'] as $key => $arOffer):
+                                        $strVisible = ($key == $arItem['OFFERS_SELECTED'] ? '' : 'none');?>
+                                        <a id="<? echo $arItemIDs['BUY_LINK']; ?><?=$arOffer['ID']?>" class="button tiny add2cart" href="javascript:;" rel="nofollow" data-preview="#<? echo $arItemIDs['PICT']; ?>" style="display: <? echo $strVisible; ?>;" data-product-id="<?=$arOffer['ID']?>"><span><?=$buttonText?></span></a>
+                                    <?endforeach;?>
                                 </div>
-                            <?}?>
-                            <div id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_catalog_item_controls_blockone" style="display: <? echo ($canBuy ? 'none' : ''); ?>;"><span class="bx_notavailable"><?
-                                echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : GetMessage('CT_BCS_TPL_MESS_PRODUCT_NOT_AVAILABLE'));
-                            ?></span></div>
-                            <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" class="small-6 columns" style="display: <? echo ($canBuy ? '' : 'none'); ?>;">
-                                <?foreach ($arItem['OFFERS'] as $key => $arOffer):
-                                    $strVisible = ($key == $arItem['OFFERS_SELECTED'] ? '' : 'none');?>
-                                    <a id="<? echo $arItemIDs['BUY_LINK']; ?><?=$arOffer['ID']?>" class="button tiny add2cart" href="javascript:;" rel="nofollow" data-preview="#<? echo $arItemIDs['PICT']; ?>" style="display: <? echo $strVisible; ?>;" data-product-id="<?=$arOffer['ID']?>"><span><?=$buttonText?></span></a>
-                                <?endforeach;?>
                             </div>
-                        </div>
+                        <?php }?>
+
                         <?if (in_array('action', $itemType) && $arParams['TAB_TYPE']):?>
                             </div>
                         <?endif;?>
