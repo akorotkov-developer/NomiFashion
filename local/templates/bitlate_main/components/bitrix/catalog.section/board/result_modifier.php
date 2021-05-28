@@ -335,6 +335,7 @@ if (!empty($arResult['ITEMS']))
 						if ($arOffer['ID'] == $arItem['OFFER_ID_SELECTED']) {
 							$intSelected = $keyOffer;
 						}
+                        $arItem['MIN_PRICE'] = (isset($arOffer['RATIO_PRICE']) ? $arOffer['RATIO_PRICE'] : $arOffer['MIN_PRICE']);
 					} elseif (empty($arItem['MIN_PRICE']) && $arOffer['CAN_BUY'])
 					{
 						$intSelected = $keyOffer;

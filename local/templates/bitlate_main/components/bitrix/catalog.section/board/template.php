@@ -463,7 +463,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem) {
                             <div class="<?=$largeClass?> columns">
                         <?endif;?>
                     <?endif;?>
-                    <?if ($arItem['CAN_BUY']) {?>
+                    <?if ($arItem['CAN_BUY'] && false) {?>
                         <div class="row row-count-cart">
                             <?if ('Y' == $arParams['USE_PRODUCT_QUANTITY']) {?>
                                 <div class="small-6 column">
