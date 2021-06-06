@@ -26,6 +26,42 @@
     cursor: pointer;
     border-bottom: 1px dashed;
 }
+
+
+.hidden_text_on_section_page_content p {
+    font-family: Arial, sans-serif;
+}
+.hidden_text_on_section_page_content {
+
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+}
+.hidden_text_on_section_page_content:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0)),to(#eeeff1));
+    background: linear-gradient(rgba(255,255,255,0),#eeeff1);
+    bottom: 0px;
+    left: 0;
+    z-index: 5;
+}
+.hidden_text_on_section_page_content.opened:after {
+    bottom: 0px;
+}
+.hidden_text_on_section_page_content.opened {
+    height: auto;
+}
+.show_hidden_text_on_section_page {
+    color: #42413c;
+    font-size: 18px;
+    cursor: pointer;
+    border-bottom: 1px dashed;
+}
+
+
 /*
 .float-left-bottom-menu {
     float: left;

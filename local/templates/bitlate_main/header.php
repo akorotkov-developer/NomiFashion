@@ -400,7 +400,7 @@ global $USER;
                             );?>
                         </div>
 
-                        <span class="show_hidden_text_on_main_page" data-opened="false">Читать далее</span>
+                        <noindex><span class="show_hidden_text_on_main_page" data-opened="false">Читать далее</span></noindex>
                     </div>
                 </div>
 

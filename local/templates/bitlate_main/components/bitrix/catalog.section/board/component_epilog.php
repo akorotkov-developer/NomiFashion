@@ -4,7 +4,11 @@
 use Bitrix\Main\Loader;
 global $APPLICATION;
 if ($arResult['DESCRIPTION'] != '') {
-    $APPLICATION->SetPageProperty('NL_CATALOG_SECTION_DESCRIPTION', "<p>{$arResult['DESCRIPTION']}</p>");
+    $APPLICATION->SetPageProperty(
+            'NL_CATALOG_SECTION_DESCRIPTION',
+        "<div class='hidden_text_on_section_page_content'>" . $arResult['DESCRIPTION'] . "</div>" .
+        '<noindex><span class="show_hidden_text_on_section_page" data-opened="false">Читать далее</span></noindex>'
+    );
 }
 if (isset($templateData['TEMPLATE_THEME']))
 {
