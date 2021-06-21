@@ -13,7 +13,7 @@ body, button, legend {
 
 h1, h2, h3, h4, h5, h6, p {
     text-rendering: optimizeLegibility;
-    font-family: ALSRubl-Arial, Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 blockquote, hr {
@@ -9185,7 +9185,7 @@ header .header-block-info-counter {
 
 .inner-content .accordion .accordion-title {
     padding: .9375rem 1.25rem .9375rem 1.6875rem;
-    white-space: nowrap;
+    white-space: normal;
     border-bottom: .1875rem solid #fff;
     color: #000
 }
@@ -9208,7 +9208,7 @@ header .header-block-info-counter {
 
 .inner-content .accordion .accordion-title .info, .inner-content .accordion .accordion-title .name {
     line-height: .9375rem;
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-overflow: ellipsis
 }
 
@@ -12399,5 +12399,10 @@ header .header-line-top .menu li.active a {
     }
     .hidden_text_on_main_page {
         padding: 20px;
+    }
+}
+@media screen and (max-width: 757px) {
+    .inner-content .accordion .accordion-title .desc {
+        padding-top: 10px;
     }
 }
