@@ -7,6 +7,7 @@ $rs = CIBlockElement::GetList(
     [],
     [
         'IBLOCK_ID' => $iIblockId,
+        'ACTIVE' => 'Y'
     ],
     false,
     false,
