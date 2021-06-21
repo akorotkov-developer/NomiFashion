@@ -12383,3 +12383,18 @@ header .header-line-top .menu li.active a {
         height: 300px;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .product-grid .label-block, .product-list .label-block {
+        top: 160px;
+        left: .9375rem;
+        z-index: 1
+    }
+}
+@media screen and (max-width: 500px) {
+    .product-grid .label-block, .product-list .label-block {
+        top: 160px;
+        left: .9375rem;
+        z-index: 1
+    }
+}
