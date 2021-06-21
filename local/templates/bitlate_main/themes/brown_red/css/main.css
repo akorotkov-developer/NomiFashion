@@ -12397,4 +12397,7 @@ header .header-line-top .menu li.active a {
         left: .9375rem;
         z-index: 1
     }
+    .hidden_text_on_main_page {
+        padding: 20px;
+    }
 }
