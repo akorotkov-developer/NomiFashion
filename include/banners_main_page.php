@@ -1,12 +1,30 @@
+<?php
+$iIblockId = 16;
+
+CModule::IncludeModule('iblock');
+
+$rs = CIBlockElement::GetList(
+    [],
+    [
+        'IBLOCK_ID' => $iIblockId,
+    ],
+    false,
+    false,
+    ['ID', 'NAME', 'PREVIEW_PICTURE', 'PROPERTY_URL']
+);
+
+$arBanners = [];
+while($ar = $rs->Fetch()) {
+    $arBanners[] = $ar;
+}
+?>
+
 <div class="b-banner-inside-product">
-    <div class="b-banner-inside-product_item">
-        <a href="">
-            <img src="<?= SITE_TEMPLATE_PATH?>/images/banner1.jpg">
-        </a>
-    </div>
-    <div class="b-banner-inside-product_item">
-        <a href="">
-            <img src="<?= SITE_TEMPLATE_PATH?>/images/banner2.jpg">
-        </a>
-    </div>
+    <?php foreach ($arBanners as $bannerItem) {?>
+        <div class="b-banner-inside-product_item">
+            <a href="<?= $bannerItem['PROPERTY_URL_VALUE']?>">
+                <img src="<?= CFile::GetPath($bannerItem['PREVIEW_PICTURE']);?>">
+            </a>
+        </div>
+    <?php }?>
 </div>
