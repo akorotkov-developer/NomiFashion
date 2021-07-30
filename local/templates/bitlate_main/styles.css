@@ -374,7 +374,11 @@ ul.child_menu_mobile {
     margin-bottom: 55px;
 }
 
-
+@media screen and (max-width: 1237px) {
+    .addtocomparespan {
+        display: none;
+    }
+}
 
 
 

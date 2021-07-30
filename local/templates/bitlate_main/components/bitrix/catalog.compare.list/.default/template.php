@@ -18,7 +18,7 @@ $this->setFrameMode(true);
         <svg class="icon">
             <use xlink:href="#svg-icon-compare"></use>
         </svg>
-        <?=getMessage('COMPARE_TITLE')?><span><?if ($countCompare > 0):?> (<?=$countCompare?>)<?endif;?></span>
+        <span class="addtocomparespan"><?=getMessage('COMPARE_TITLE')?></span><span><?if ($countCompare > 0):?> (<?=$countCompare?>)<?endif;?></span>
         <div class="compare_products" style="display:none;">
             <?if ($countCompare > 0):?>
                 <?foreach($arResult as $arElement):?>
