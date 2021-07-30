@@ -25,6 +25,7 @@
                 3 => 'IMAGE_BANNER_MOBILE',
                 4 => 'COLOR_TITLE_BANNER_MOBILE',
                 5 => 'TEXT_BANNER_MOBILE',
+                6 => 'BANNER_LINK',
             ),
             "CHECK_DATES" => "Y",
             "DETAIL_URL" => "",

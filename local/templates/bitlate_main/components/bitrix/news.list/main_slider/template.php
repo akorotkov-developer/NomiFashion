@@ -13,17 +13,23 @@ $this->setFrameMode(true);?>
                 $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
                 ?>
                 <div class="item vertical-middle" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-                    <<?=$blockSelector?><?if ($detailUrl):?> href="<?=$detailUrl?>"<?endif;?> class="background <?=($arItem['PROPERTIES']['STYLE']['VALUE_XML_ID'] == 'white') ? 'white' : 'black'?>" style="background-image:url(<?=$pic['src']?>);">
-                        <span class="container row">
-                            <span class="main-slider-caption <?php if ($arItem['PROPERTIES']['HIDE_TITLE_DESKTOP']['VALUE'] != '') { echo 'displaynone';}?>">
-                                <?=$arItem['~NAME']?>
+                    <?php if ($arItem['PROPERTIES']['BANNER_LINK']['VALUE']) { ?>
+                        <a href="<?= $arItem['PROPERTIES']['BANNER_LINK']['VALUE']?>">
+                    <?php } ?>
+                        <<?=$blockSelector?><?if ($detailUrl):?> href="<?=$detailUrl?>"<?endif;?> class="background sdfsdfds <?=($arItem['PROPERTIES']['STYLE']['VALUE_XML_ID'] == 'white') ? 'white' : 'black'?>" style="background-image:url(<?=$pic['src']?>);">
+                            <span class="container row">
+                                <span class="main-slider-caption <?php if ($arItem['PROPERTIES']['HIDE_TITLE_DESKTOP']['VALUE'] != '') { echo 'displaynone';}?>">
+                                    <?=$arItem['~NAME']?>
+                                </span>
+                                <span class="main-slider-desc"><?=$arItem['PREVIEW_TEXT']?></span>
+                                <?if ($detailUrl):?>
+                                    <span class="button hide-for-small-only"><?=GetMessage("MORE")?></span>
+                                <?endif;?>
                             </span>
-                            <span class="main-slider-desc"><?=$arItem['PREVIEW_TEXT']?></span>
-                            <?if ($detailUrl):?>
-                                <span class="button hide-for-small-only"><?=GetMessage("MORE")?></span>
-                            <?endif;?>
-                        </span>
-                    </<?=$blockSelector?>>
+                        </<?=$blockSelector?>>
+                    <?php if ($arItem['PROPERTIES']['BANNER_LINK']['VALUE']) { ?>
+                        </a>
+                    <?php } ?>
                 </div>
             <?endif;
         endforeach;?>
