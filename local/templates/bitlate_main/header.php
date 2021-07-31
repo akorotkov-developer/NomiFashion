@@ -326,6 +326,13 @@ global $USER;
             </nav>
 
         </header>
+
+
+
+
+
+<?php if ($APPLICATION->GetCurPage() != '/success.php') {?>
+
         <?$classSection = "";
         $isSearch = ($APPLICATION->GetCurDir() == $templateOptions['url_catalog_search'] && isset($_REQUEST['q']));
         if ($APPLICATION->GetCurDir() == SITE_DIR) {
@@ -454,3 +461,5 @@ global $USER;
                             <div class="inner-content <?=NLApparelshopUtils::getLeftMenu()?>">
                 <?endif;?>
         <?endif;?>
+
+<?php } ?>
