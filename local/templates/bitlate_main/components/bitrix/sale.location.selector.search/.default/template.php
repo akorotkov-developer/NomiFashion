@@ -37,7 +37,7 @@ Loc::loadMessages(__FILE__);
 		<div class="dropdown-block bx-ui-sls-input-block">
 
 			<span class="dropdown-icon"></span>
-			<input type="text" autocomplete="off" name="<?=$arParams['INPUT_NAME']?>" value="<?=$arResult['VALUE']?>" class="dropdown-field" placeholder="<?=Loc::getMessage('SALE_SLS_INPUT_SOME')?>" />
+			<input type="text" autocomplete="new-password" name="<?=$arParams['INPUT_NAME']?>" value="<?=$arResult['VALUE']?>" class="dropdown-field" placeholder="<?=Loc::getMessage('SALE_SLS_INPUT_SOME')?>" />
 
 			<div class="dropdown-fade2white"></div>
 			<div class="bx-ui-sls-loader"></div>
