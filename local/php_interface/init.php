@@ -30,6 +30,7 @@ class IblockEvents
             unset($arFields['NAME']);
 
             $arFields['DETAIL_TEXT_TYPE'] = 'html';
+            $arFields['PREVIEW_TEXT_TYPE'] = 'html';
         }
     }
 
