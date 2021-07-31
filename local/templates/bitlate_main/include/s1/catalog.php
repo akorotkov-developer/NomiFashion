@@ -86,10 +86,7 @@ $APPLICATION->IncludeComponent(
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_ELEMENT_SELECT_BOX" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"ELEMENT_SORT_FIELD" => "sort",
-		"ELEMENT_SORT_FIELD2" => "id",
-		"ELEMENT_SORT_ORDER" => "asc",
-		"ELEMENT_SORT_ORDER2" => "desc",
+
 		"FIELDS" => array(
 			0 => "TITLE",
 			1 => "ADDRESS",
