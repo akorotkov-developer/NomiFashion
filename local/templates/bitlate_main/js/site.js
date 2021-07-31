@@ -74,10 +74,10 @@ function getCatalogItems(elem, block, reload, tab) {
                     }
                 }
                 if ($('.products-flex-grid').length > 0) {
-                    if (reload !== true) {
+                    /*if (reload !== true) {
                         $('.products-flex-grid').isotope('reloadItems');
-                    }
-                    $('.products-flex-grid').isotope(productGridOptions);
+                    }*/
+                    //$('.products-flex-grid').isotope(productGridOptions);
                 }
                 if ($('.product-list-item .dropdown-pane').length > 0) {
                     $('.product-list-item .dropdown-pane').foundation();

@@ -1010,7 +1010,9 @@ if (isset($arResult['NAV_RESULT']->NavPageCount) && ($arResult['NAV_RESULT']->Na
         </div>
         <div class="column large-4 small-12 text-center">
             <?if ($nextPageUrl != ''):?>
-                <a href="javascript:;" class="load-more text-center" onclick="getCatalogItems(this, '<?=(($arParams["TAB_TYPE"]) ? '.product-grid-' . $arParams["TAB_TYPE"] . ' .product-grid' : '.products-flex-grid')?>', false<?if ($arParams["TAB_TYPE"]):?>, true<?endif;?>)" data-ajax="<?=$nextPageUrl?>">
+                <a href="javascript:;" class="load-more text-center"
+                   onclick="getCatalogItems(this, '<?=(($arParams["TAB_TYPE"]) ? '.product-grid-' . $arParams["TAB_TYPE"] . ' .product-grid' : '.products-flex-grid')?>', false<?if ($arParams["TAB_TYPE"]):?>, true<?endif;?>)"
+                   data-ajax="<?=$nextPageUrl?>">
                     <svg class="icon">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-load-more"></use>
                     </svg>
