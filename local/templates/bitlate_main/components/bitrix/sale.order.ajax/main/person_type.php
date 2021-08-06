@@ -2,7 +2,7 @@
 <?
 if (count($arResult["PERSON_TYPE"]) > 1):?>
     <div class="cart-content" <?if ($curStep != 'delivery'):?> style="display:none;"<?endif;?>>
-        <div class="float-center large-7 xlarge-5 relative">
+        <div class="float-center large-7 xlarge-6 relative">
             <div class="cart-content-counter show-for-large"><?=$iBlock?></div>
             <?$iBlock++;?>
             <label for="person-type">

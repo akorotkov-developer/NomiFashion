@@ -17,7 +17,7 @@ if ($_REQUEST['Success'] == 'true' && $_REQUEST['OrderId']) {
 
     $order->save();
 
-    echo "<h1 style='text-align: center; margin: 100px; color: darkgreen;'>Ваш заказ успешно оплачен и и формируется к отправке</h1>";
+    echo "<h1 style='text-align: center; margin: 100px; color: darkgreen;'>Ваш заказ успешно оплачен и формируется к отправке</h1>";
 }
 ?>
 

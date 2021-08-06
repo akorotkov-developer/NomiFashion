@@ -5,7 +5,7 @@ include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props_format.php");
 if (is_array($arResult["ORDER_PROP"]["USER_PROFILES"]) && !empty($arResult["ORDER_PROP"]["USER_PROFILES"])):?>
     <div class="cart-content" <?if ($curStep != 'delivery'):?> style="display:none;"<?endif;?>>
         <?if ($arParams["ALLOW_NEW_PROFILE"] == "Y"):?>
-            <div class="float-center large-7 xlarge-5 relative">
+            <div class="float-center large-7 xlarge-6 relative">
                 <div class="cart-content-counter show-for-large"><?=$iBlock?></div>
                 <?$iBlock++;?>
                 <label for="ID_PROFILE_ID">
@@ -19,7 +19,7 @@ if (is_array($arResult["ORDER_PROP"]["USER_PROFILES"]) && !empty($arResult["ORDE
                 </label>
             </div>
         <?else:?>
-            <div class="float-center large-7 xlarge-5 relative">
+            <div class="float-center large-7 xlarge-6 relative">
                 <div class="cart-content-counter show-for-large"><?=$iBlock?></div>
                 <?$iBlock++;?>
                 <label for="delivery-profile">
@@ -42,7 +42,7 @@ if (is_array($arResult["ORDER_PROP"]["USER_PROFILES"]) && !empty($arResult["ORDE
     </div>
 <?endif;?>
 <div class="cart-content" <?if ($curStep != 'delivery'):?> style="display:none;"<?endif;?>>
-    <div class="float-center large-7 xlarge-5 relative">
+    <div class="float-center large-7 xlarge-6 relative">
         <div class="cart-content-counter show-for-large"><?=$iBlock?></div>
         <?$iBlock++;?>
         <input type="hidden" name="showProps" id="showProps" value="<?=($_POST["showProps"] == 'Y' ? 'Y' : 'N')?>" />

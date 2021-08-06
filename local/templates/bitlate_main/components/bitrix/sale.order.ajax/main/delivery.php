@@ -129,7 +129,7 @@
 <?if(!empty($arResult["DELIVERY"])) {
     $width = ($arParams["SHOW_STORES_IMAGES"] == "Y") ? 850 : 700;?>
     <div class="cart-content" <?if ($curStep != 'delivery'):?> style="display:none;"<?endif;?>>
-        <div class="float-center large-7 xlarge-5 relative">
+        <div class="float-center large-7 xlarge-6 relative">
             <div class="cart-content-counter show-for-large"><?=$iBlock?></div>
             <?$iBlock++;?>
             <fieldset class="radio">
