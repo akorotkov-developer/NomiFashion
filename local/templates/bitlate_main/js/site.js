@@ -639,6 +639,9 @@ $(document).ready(function() {
         var url = $(this).val();
         if (url != '') {
             var newSort = $(this).find('option:selected').attr('data-sort-code');
+            if (!newSort) {
+                return false;
+            }
             $('#catalog-filter input[name=sort]').val(newSort);
             $(this).attr('data-ajax', url);
             $('#catalog-filter #set_filter').attr('href', $(this).attr('data-ajax'));
