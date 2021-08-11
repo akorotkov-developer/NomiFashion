@@ -154,12 +154,12 @@ $isSearch = ($APPLICATION->GetCurDir() == $templateOptions['url_catalog_search']
         <div id="bx_fancybox_blocks">
             <?$frame = new \Bitrix\Main\Page\FrameHelper("bx_fancybox_blocks");
             $frame->begin();?>
-                <?$APPLICATION->IncludeComponent("bitrix:main.include", "", 
+                <?/*$APPLICATION->IncludeComponent("bitrix:main.include", "",
                     array(
                         "AREA_FILE_SHOW" => "file", 
                         "PATH" => SITE_DIR."include/popup/service_order.php"
                     ),
-                false);?>
+                false);*/?>
                 <?$APPLICATION->IncludeComponent("bitrix:main.include", "", 
                     array(
                         "AREA_FILE_SHOW" => "file", 
