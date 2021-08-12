@@ -271,15 +271,15 @@ $APPLICATION->IncludeComponent(
 			2 => "ALL",
 		),
 		"SORT_LIST_CODES" => array(
-			0 => "price_asc",
-			1 => "price_desc",
-			2 => "manufacture",
+            0 => "manufacture",
+			1 => "price_asc",
+			2 => "price_desc",
 			3 => "manufacture_price_asc",
 		),
 		"SORT_LIST_FIELDS" => array(
-			0 => "PROPERTY_MIN_PRICE",
+            0 => "PROPERTY_MANUFACTURE.NAME",
 			1 => "PROPERTY_MIN_PRICE",
-			2 => "PROPERTY_MANUFACTURE.NAME",
+			2 => "PROPERTY_MIN_PRICE",
 			3 => "PROPERTY_MANUFACTURE.NAME;PROPERTY_MIN_PRICE",
 		),
 		"SORT_LIST_ORDERS" => array(
@@ -289,9 +289,9 @@ $APPLICATION->IncludeComponent(
 			3 => "asc;asc,nulls",
 		),
 		"SORT_LIST_NAME" => array(
-			0 => "Цене, сначала недорогие",
-			1 => "Цене, сначала дорогие",
-			2 => "Производителю",
+            0 => "Производителю",
+			1 => "Цене, сначала недорогие",
+			2 => "Цене, сначала дорогие",
 			3 => "Производителю и цене",
 		),
 		"CATALOG_MAIN_LIST" => "Y",
