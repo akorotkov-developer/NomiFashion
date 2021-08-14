@@ -121,16 +121,29 @@ $intSectionID = 0;
             array('HIDE_ICONS' => 'Y')
         );?>
     
-        <?$intSectionID = $APPLICATION->IncludeComponent(
+        <?php
+        if (empty($_REQUEST['sort'])) {
+            $sortField = 'SORT';
+            $sortOrder = 'asc';
+            $sortField2 = 'PROPERTY_MIN_PRICE';
+            $sortOrder2 = 'asc';
+        } else {
+            $sortField = $arSortView["SORT"][0]["FIELD"];
+            $sortOrder = $arSortView["SORT"][0]["ORDER"];
+            $sortField2 = $arSortView["SORT"][1]["FIELD"];
+            $sortOrder2 = $arSortView["SORT"][1]["ORDER"];
+        }
+
+        $intSectionID = $APPLICATION->IncludeComponent(
             "bitrix:catalog.section",
             $arSortView["VIEW"],
             array(
                 "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
                 "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-                "ELEMENT_SORT_FIELD" => $arSortView["SORT"][0]["FIELD"],
-                "ELEMENT_SORT_ORDER" => $arSortView["SORT"][0]["ORDER"],
-                "ELEMENT_SORT_FIELD2" => $arSortView["SORT"][1]["FIELD"],
-                "ELEMENT_SORT_ORDER2" => $arSortView["SORT"][1]["ORDER"],
+                "ELEMENT_SORT_FIELD" => $sortField,
+                "ELEMENT_SORT_ORDER" => $sortOrder,
+                "ELEMENT_SORT_FIELD2" => $sortField2,
+                "ELEMENT_SORT_ORDER2" => $sortOrder2,
                 "PROPERTY_CODE" => $arParams["LIST_PROPERTY_CODE"],
                 "META_KEYWORDS" => $arParams["LIST_META_KEYWORDS"],
                 "META_DESCRIPTION" => $arParams["LIST_META_DESCRIPTION"],
