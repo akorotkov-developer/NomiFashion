@@ -1,4 +1,6 @@
-<?
+<?php
+use Bitrix\Main\EventManager;
+
 define('PRODUCT_DEFAULT_RATING', 3);
 define("BX_PULL_SKIP_INIT", true);
 
@@ -8,6 +10,13 @@ AddEventHandler("iblock", "OnAfterIBlockElementAdd", ["IblockEvents", "OnAfterIB
 AddEventHandler("iblock", "OnBeforeIBlockSectionAdd", ["IblockEvents", "OnBeforeIBlockSectionAddHandler"]);
 AddEventHandler("iblock", "OnBeforeIBlockSectionDelete", ["IblockEvents", "OnBeforeIBlockSectionDeleteHandler"]);
 AddEventHandler("iblock", "OnBeforeIBlockElementDelete", ["IblockEvents", "OnBeforeIBlockElementDeleteHandler"]);
+
+//Событие при пересчете стоимости доставки
+EventManager::getInstance()->addEventHandler(
+    'sale',
+    'onSaleDeliveryServiceCalculate',
+    ['OrderEvents', 'OnSaleDeliveryServiceCalculateHandler']
+);
 
 class IblockEvents
 {
@@ -73,5 +82,23 @@ class IblockEvents
         if ($_REQUEST['mode'] == 'import') {
             return false;
         }
+    }
+}
+
+/*
+ * События в заказе
+ * */
+class OrderEvents
+{
+    /**
+     * Изменение стоимости доставки
+     *
+     * @param \Bitrix\Main\Event $obEvent
+     */
+    public function OnSaleDeliveryServiceCalculateHandler(\Bitrix\Main\Event $obEvent)
+    {
+        $obBaseResult = $obEvent->getParameter('RESULT');
+
+        $obBaseResult->setDeliveryPrice(0);
     }
 }
