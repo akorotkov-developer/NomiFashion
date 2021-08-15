@@ -282,8 +282,8 @@ $APPLICATION->IncludeComponent(
 		),
 		"SORT_LIST_ORDERS" => array(
 			0 => "asc,nulls",
-			1 => "desc,nulls",
-            2 => "asc,nulls"
+            1 => "asc,nulls",
+			2 => "desc,nulls",
 		),
 		"SORT_LIST_NAME" => array(
             0 => "---",
