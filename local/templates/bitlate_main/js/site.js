@@ -638,7 +638,6 @@ $(document).ready(function() {
     $(document).on('change', '.catalog-sorting select', function(e){
         var url = $(this).val();
         if (url != '') {
-            console.log('Попали сюда');
             var newSort = $(this).find('option:selected').attr('data-sort-code');
             if (!newSort) {
                 return false;

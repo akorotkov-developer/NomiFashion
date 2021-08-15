@@ -100,7 +100,6 @@ $( document ).ready(function() {
     /***/
 
     function checkCountElements() {
-        console.log('Попали сюда');
         $(".product-grid-recomend .products-flex-grid").each(function (index, el){
             var iElementCount = 0;
             var lastEl;

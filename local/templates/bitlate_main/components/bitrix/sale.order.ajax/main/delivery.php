@@ -194,17 +194,57 @@
                                 <span class="ora-store" id="store_desc"><?=htmlspecialcharsbx($arResult["STORE_LIST"][$arResult["BUYER_STORE"]]["TITLE"])?></span>
                             </span></p>
                         <?endif;?>
+
+                        <?php if ($arDelivery["NAME"] == 'СДЭК (Доставка курьером)') {?>
+                            <div class="info-tooltip-box">
+                                <div class="info-tooltip-img">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                                d="M4.4443 18.3147C6.08879 19.4135 8.02219 20 10 20C12.6512 19.9968 15.1929 18.9422 17.0676 17.0676C18.9422 15.1929 19.9968 12.6512 20 10C20 8.02219 19.4135 6.08879 18.3147 4.4443C17.2159 2.79981 15.6541 1.51809 13.8268 0.761209C11.9996 0.00433284 9.98891 -0.193701 8.0491 0.192152C6.10929 0.578004 4.32746 1.53041 2.92894 2.92894C1.53041 4.32746 0.578004 6.10929 0.192152 8.0491C-0.193701 9.98891 0.00433284 11.9996 0.761209 13.8268C1.51809 15.6541 2.79981 17.2159 4.4443 18.3147Z"
+                                                fill="#E1E1E3"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M9.45442 5.77197H10.9089V7.22649H9.45442V5.77197ZM10.909 9.40823V12.3173H12.3635V13.7718H8V12.3173H9.45451V9.40823H8V7.95372H10.909V8.68097V9.40823Z"
+                                              fill="#2B2D33"/>
+                                    </svg>
+                                </div>
+
+                                <div class="info-tooltip-text">
+                                    <p>Доставка с примеркой. В случае выкупа хотя бы 1 позиции заказа доставка бесплатная.На примерку можно заказать до 6 изделий. Верхняя одежда до 4 изделий.Оплата заказа наличными или банковской картой курьеру. При полном отказе доставка оплачивается в размере 300 р. по Москве и 490 р. по России.</p>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </label>
                     <?if ($arDelivery['CHECKED'] == 'Y'):?>
                         <table class="delivery_extra_services">
-                            <?foreach ($arDelivery['EXTRA_SERVICES'] as $extraServiceId => $extraService):?>
+                            <?php
+                            $isY = 'Y';
+                            foreach ($arDelivery['EXTRA_SERVICES'] as $extraServiceId => $extraService):
+                                if ($isY == 'Y') {
+                                    $isY = 'N';
+                                } else {
+                                    $isY = 'Y';
+                                }
+                                ?>
                                 <?if(!$extraService->canUserEditValue()) continue;?>
                                 <tr>
-                                    <td class="name">
-                                        <?=$extraService->getName()?>
-                                    </td>
-                                    <td class="control">
-                                        <?=$extraService->getEditControl('DELIVERY_EXTRA_SERVICES['.$arDelivery['ID'].']['.$extraServiceId.']')	?>
+                                    <td class="control store_controls">
+                                        <fieldset class="radio radio_store">
+                                            <input type="hidden" name="DELIVERY_EXTRA_SERVICES[<?= $arDelivery['ID']?>][<?= $extraServiceId?>]" value="<?= $isY?>">
+
+                                            <input type="radio"
+                                                   <?php if ($extraService->getDisplayValue() == 'Да') {echo 'checked="checked"';}?>
+
+                                                   id="store_DELIVERY_EXTRA_SERVICES_<?= $extraServiceId?>"
+                                                   name="DELIVERY_EXTRA_SERVICES[<?= $arDelivery['ID']?>][<?= $extraServiceId?>]"
+                                                   value="<?= $isY?>"
+                                                   class="show-for-sr"
+                                            />
+                                            <label for="store_DELIVERY_EXTRA_SERVICES_<?= $extraServiceId?>" class="price-block b-l-store" onclick="$(this).siblings('input[type=checkbox]').trigger('click'); setStoresRadioVals('<?= $extraServiceId?>');">
+                                                <?=$extraService->getName()?>
+                                            </label>
+
+                                            <?= $extraService->getEditControl('DELIVERY_EXTRA_SERVICES['.$arDelivery['ID'].']['.$extraServiceId.']') ?>
+                                        </fieldset>
                                     </td>
                                     <td rowspan="2" class="price">
                                         <?if ($price = $extraService->getPrice()) {
@@ -226,3 +266,30 @@
         </div>
     </div>
 <?}?>
+
+<script>
+    function setStoresRadioVals(radioId) {
+        var radioButtonId = '#store_DELIVERY_EXTRA_SERVICES_' + radioId;
+        var isChecked;
+        var checkBoxName;
+        var sravCheckBoxName = 'DELIVERY_EXTRA_SERVICES[2][' + radioId + ']'
+
+        if ($(radioButtonId).attr('checked') == 'checked') {
+            isChecked = false;
+        } else {
+            isChecked = true;
+        }
+
+        if (isChecked) {
+            $('.store_controls').find('input[type="checkbox"]').each(function (index, el) {
+                if (checkBoxName != sravCheckBoxName) {
+                    if ($(el).attr('checked') == 'checked') {
+                        $(el).trigger('click');
+                        console.log('Клик по лишнему элементу');
+                    }
+                }
+            });
+        }
+    }
+</script>
+
