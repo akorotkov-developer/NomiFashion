@@ -123,8 +123,8 @@ $intSectionID = 0;
     
         <?php
         if (empty($_REQUEST['sort'])) {
-            $sortField = 'SORT';
-            $sortOrder = 'asc';
+            $sortField = 'PROPERTY_MIN_PRICE';
+            $sortOrder = 'desc';
             $sortField2 = 'PROPERTY_MIN_PRICE';
             $sortOrder2 = 'asc';
         } else {

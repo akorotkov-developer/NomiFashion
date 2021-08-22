@@ -32,8 +32,8 @@ $APPLICATION->IncludeComponent(
 	array(
 		"IBLOCK_TYPE" => "catalog",
 		"IBLOCK_ID" => '4',
-		"ELEMENT_SORT_FIELD" => "sort",
-		"ELEMENT_SORT_ORDER" => "asc",
+		"ELEMENT_SORT_FIELD" => "PROPERTY_MIN_PRICE",
+		"ELEMENT_SORT_ORDER" => "desc",
 		"ELEMENT_SORT_FIELD2" => "active_from",
 		"ELEMENT_SORT_ORDER2" => "asc",
 		"META_KEYWORDS" => "-",
