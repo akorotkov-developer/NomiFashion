@@ -621,7 +621,10 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
             </div>
         </div>
     </div>
-    <?if ('' != $arResult['PREVIEW_TEXT'] || in_array('action', $itemType) || (in_array('prodday', $itemType) && $discount > 0)):?>
+    <?php
+    $isDescription = ('' != $arResult['DETAIL_TEXT'] || (!empty($arResult['DISPLAY_PROPERTIES']['DOCS']['VALUE']) && $arResult['DISPLAY_PROPERTIES']['DOCS']['ACTIVE'] == 'Y'));
+    ?>
+    <?if ($isDescription || '' != $arResult['PROPERTIES']['PODKLADKA']['VALUE'] || '' != $arResult['PROPERTIES']['SOSTAV_TKANI']['VALUE'] || '' != $arResult['PREVIEW_TEXT'] || in_array('action', $itemType) || (in_array('prodday', $itemType) && $discount > 0)):?>
         <div class="product-info-block product-info-desc">
             <?if (in_array('action', $itemType)):?>
                 <div class="product-action-banner timer text-center show-for-large">
@@ -663,8 +666,61 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
             <?if ('' != $arResult['PREVIEW_TEXT']):?>
                 <div itemprop="description"><? echo $arResult['PREVIEW_TEXT']; ?></div>
             <?endif;?>
+
+            <?php if($arResult['PROPERTIES']['SOSTAV_TKANI']['VALUE']) {?>
+                <div>
+                    <b>Состав ткани: </b><?= $arResult['PROPERTIES']['SOSTAV_TKANI']['VALUE'];?>
+                </div>
+            <?php }?>
+            <?php if($arResult['PROPERTIES']['PODKLADKA']['VALUE']) {?>
+                <div>
+                    <b>Подкладка: </b><?= $arResult['PROPERTIES']['PODKLADKA']['VALUE'];?>
+                </div>
+            <?php }?>
+
+            <div class="description_on_left_sidebar_cart hidden_description">
+                <?if ('' != $arResult['DETAIL_TEXT']):?>
+                    <p><? echo $arResult['DETAIL_TEXT']; ?></p>
+                <?endif;?>
+                <?if (!empty($arResult['DISPLAY_PROPERTIES']['DOCS']['VALUE']) && $arResult['DISPLAY_PROPERTIES']['DOCS']['ACTIVE'] == 'Y'):
+                    $i = 0;?>
+                    <dl class="product-doc row xlarge-up-2">
+                        <dt><?=getMessage('CT_BCE_CATALOG_DOCS')?></dt>
+                        <?if ($arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE']['ID'] > 0):
+                            $tmpDocInfo = $arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE'];
+                            $arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE'] = array();
+                            $arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE'][0] = $tmpDocInfo;?>
+                        <?endif;?>
+                        <?foreach ($arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE'] as $docInfo):?>
+                            <dd class="column<?if ($i == 0):?> inline-block-container<?endif;?>">
+                                <a href="<?=$docInfo['SRC']?>" target="_blank">
+                                                <span class="inline-block-item vertical-middle product-doc-icon">
+                                                    <svg class="icon">
+                                                        <use xlink:href="#svg-icon-doc"></use>
+                                                    </svg>
+                                                    <span class="extention"><?=NLApparelshopUtils::getFileExtention($docInfo['FILE_NAME'])?></span>
+                                                </span>
+                                    <span class="inline-block-item vertical-middle product-doc-name">
+                                                    <?$docName = $docInfo['DESCRIPTION'];
+                                                    if ($docName == '') {
+                                                        $originalName = explode('.', $docInfo['ORIGINAL_NAME']);
+                                                        unset($originalName[(count($originalName) + 1)]);
+                                                        $docName = implode('.', $originalName);
+                                                    }
+                                                    $docName = ($docName != '') ? $docName : getMessage('CT_BCE_CATALOG_DOC');?>
+                                        <?=$docName?> <span>(<?=NLApparelshopUtils::getFileSize($docInfo['FILE_SIZE'])?>)</span>
+                                                </span>
+                                </a>
+                            </dd>
+                            <?$i++;
+                        endforeach;?>
+                    </dl>
+                <?endif;?>
+            </div>
+            <noindex><span class="show_hidden_description" data-opened="false">Читать далее</span></noindex>
         </div>
     <?endif;?>
+
     <script src="//yastatic.net/share2/share.js" charset="utf-8"></script>
     <div class="ya-share2 hide" data-services="facebook,vkontakte,odnoklassniki,twitter,gplus"></div>
     <ul class="product-info-block product-info-social inline-block-container">
@@ -1016,10 +1072,6 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
 </div>
 <?$countTabs = 0;
 $isFirst = false;
-$isDescription = ('' != $arResult['DETAIL_TEXT'] || (!empty($arResult['DISPLAY_PROPERTIES']['DOCS']['VALUE']) && $arResult['DISPLAY_PROPERTIES']['DOCS']['ACTIVE'] == 'Y'));
-if ($isDescription) {
-    $countTabs++;
-}
 $isParams = false;
 foreach ($arResult['DISPLAY_PROPERTIES'] as $arProperty) {
     if (in_array($arProperty['ID'], $arResult['SHOWED_PROPERTIES']) && $arProperty['ACTIVE'] == 'Y') {
@@ -1049,11 +1101,6 @@ if ($isAmount) {
 <div class="product-accordion-tabs">
     <div class="advanced-container-medium">
         <ul class="tabs row large-up-<?=$countTabs?> show-for-xlarge" id="product-accordion-tabs" data-tabs>
-            <?if ($isDescription):
-                $isFirst = true;
-                $activeClass = ' is-active';?>
-                <li class="column tabs-title<?=$activeClass?>"><a href="#product-tab-1"><?=getMessage('CT_BCE_CATALOG_DESCRIPTION')?></a></li>
-            <?endif;?>
             <?if ($isParams):
                 $activeClass = (!$isFirst) ? ' is-active' : '';
                 $isFirst = true;?>
@@ -1072,52 +1119,6 @@ if ($isAmount) {
         </ul>
         <?$isFirst = false;?>
         <ul class="product-accordion-tabs-content accordion" data-accordion data-tabs-content="product-accordion-tabs" role="tablist">
-            <?if ($isDescription):
-                $isFirst = true;
-                $activeClass = ' is-active';?>
-                <li class="product-accordion-tabs-item accordion-item<?=$activeClass?>" id="product-tab-1">
-                    <a href="#" class="accordion-title hide-for-xlarge" role="tab"><?=getMessage('CT_BCE_CATALOG_DESCRIPTION')?></a>
-                    <div class="product-accordion-tabs-wrap accordion-content" data-tab-content role="tabpanel">
-                        <?if ('' != $arResult['DETAIL_TEXT']):?>
-                            <p><? echo $arResult['DETAIL_TEXT']; ?></p>
-                        <?endif;?>
-                        <?if (!empty($arResult['DISPLAY_PROPERTIES']['DOCS']['VALUE']) && $arResult['DISPLAY_PROPERTIES']['DOCS']['ACTIVE'] == 'Y'):
-                            $i = 0;?>
-                            <dl class="product-doc row xlarge-up-2">
-                                <dt><?=getMessage('CT_BCE_CATALOG_DOCS')?></dt>
-                                <?if ($arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE']['ID'] > 0):
-                                    $tmpDocInfo = $arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE'];
-                                    $arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE'] = array();
-                                    $arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE'][0] = $tmpDocInfo;?>
-                                <?endif;?>
-                                <?foreach ($arResult['DISPLAY_PROPERTIES']['DOCS']['FILE_VALUE'] as $docInfo):?>
-                                    <dd class="column<?if ($i == 0):?> inline-block-container<?endif;?>">
-                                        <a href="<?=$docInfo['SRC']?>" target="_blank">
-                                            <span class="inline-block-item vertical-middle product-doc-icon">
-                                                <svg class="icon">
-                                                    <use xlink:href="#svg-icon-doc"></use>
-                                                </svg>
-                                                <span class="extention"><?=NLApparelshopUtils::getFileExtention($docInfo['FILE_NAME'])?></span>
-                                            </span>
-                                            <span class="inline-block-item vertical-middle product-doc-name">
-                                                <?$docName = $docInfo['DESCRIPTION'];
-                                                if ($docName == '') {
-                                                    $originalName = explode('.', $docInfo['ORIGINAL_NAME']);
-                                                    unset($originalName[(count($originalName) + 1)]);
-                                                    $docName = implode('.', $originalName);
-                                                }
-                                                $docName = ($docName != '') ? $docName : getMessage('CT_BCE_CATALOG_DOC');?>
-                                                <?=$docName?> <span>(<?=NLApparelshopUtils::getFileSize($docInfo['FILE_SIZE'])?>)</span>
-                                            </span>
-                                        </a>
-                                    </dd>
-                                    <?$i++;
-                                endforeach;?>
-                            </dl>
-                        <?endif;?>
-                    </div>
-                </li>
-            <?endif;?>
             <?if ($isParams):
                 $activeClass = (!$isFirst) ? ' is-active' : '';
                 $isFirst = true;?>

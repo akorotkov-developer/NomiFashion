@@ -30,6 +30,21 @@ $( document ).ready(function() {
             $(this).text('Свернуть');
         }
     });
+    $(document).on('click', '.show_hidden_description', function(e){
+        var hiddenTextBlock = $('.hidden_description');
+
+        if ($(this).attr('data-opened') == 'true') {
+            hiddenTextBlock.removeClass('opened');
+            $(this).attr('data-opened', false);
+            $(this).text('Читать далее');
+        } else {
+            if (!hiddenTextBlock.hasClass('opened')) {
+                hiddenTextBlock.addClass('opened');
+            }
+            $(this).attr('data-opened', true);
+            $(this).text('Свернуть');
+        }
+    });
 
     $('.show_all_bottom_menu').on('click', function() {
         var hiddenTextBlock = $('.bottom-menu-catalog-menu');
