@@ -547,8 +547,8 @@ div#order_form_content .errortext {
 	margin-bottom: 0;
 }
 #order_form_div .location-block-wrapper{
-	max-width: 400px;
 	width: 100%;
+	margin-bottom: 15px;
 }
 #order_form_div .dropdown-block{
 	width: auto;
@@ -592,4 +592,15 @@ fieldset.radio_store input:checked + label:after, fieldset.radio_store input:che
 }
 .delivery_extra_services {
 	margin-left: 30px;
+}
+.punkti_somovivoza {
+	display: none;
+	margin-left: 30px;
+	margin-bottom: 10px;
+}
+.punkti_somovivoza a {
+	font-weight: bold;
+}
+.cart-content .zip {
+	display: none;
 }

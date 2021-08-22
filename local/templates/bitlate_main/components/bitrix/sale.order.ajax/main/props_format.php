@@ -86,7 +86,7 @@ if (!function_exists("PrintPropsForm")) {
                     $subClass = ' large-7';
                 }
                 if ($arProperties["CODE"] == "CITY") {
-                    $subClass = ' large-7';
+                    $subClass = ' large-12';
                 }
                 if ($prevClass == ' large-7') {
                     $subClass = ' large-5';

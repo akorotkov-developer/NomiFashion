@@ -1,6 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props_format.php");
 ?>
+
 <?$bHideProps = false;
 if (is_array($arResult["ORDER_PROP"]["USER_PROFILES"]) && !empty($arResult["ORDER_PROP"]["USER_PROFILES"])):?>
     <div class="cart-content" <?if ($curStep != 'delivery'):?> style="display:none;"<?endif;?>>

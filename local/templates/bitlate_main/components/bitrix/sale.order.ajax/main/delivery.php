@@ -122,7 +122,6 @@
 
 	if(typeof submitForm === 'function')
 		BX.addCustomEvent('onDeliveryExtraServiceValueChange', function(){
-		    console.log('Клик здесь 1!!');
 		    submitForm();
 		});
 </script>
@@ -132,6 +131,7 @@
     $width = ($arParams["SHOW_STORES_IMAGES"] == "Y") ? 850 : 700;?>
     <div class="cart-content" <?if ($curStep != 'delivery'):?> style="display:none;"<?endif;?>>
         <div class="float-center large-7 xlarge-6 relative">
+
             <div class="cart-content-counter show-for-large"><?=$iBlock?></div>
             <?$iBlock++;?>
             <fieldset class="radio">
@@ -147,14 +147,6 @@
                     else
                         $clickHandler = "onClick = \"BX('ID_DELIVERY_ID_".$arDelivery["ID"]."').checked=true;".$extraParams." submitForm();\"";
                     ?>
-
-                    <input type="radio"
-                        id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>"
-                        name="<?=htmlspecialcharsbx($arDelivery["FIELD_NAME"])?>"
-                        value="<?= $arDelivery["ID"] ?>"<?if ($arDelivery["CHECKED"]=="Y") echo " checked=\"checked\"";?>
-                        class="show-for-sr"
-                        onclick="submitForm();"
-                        />
 
                     <?php if ($arDelivery["NAME"] == 'СДЭК (Доставка курьером)') {?>
                         <div class="info-tooltip-box">
@@ -174,6 +166,14 @@
                             </div>
                         </div>
                     <?php } ?>
+
+                    <input type="radio"
+                        id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>"
+                        name="<?=htmlspecialcharsbx($arDelivery["FIELD_NAME"])?>"
+                        value="<?= $arDelivery["ID"] ?>"<?if ($arDelivery["CHECKED"]=="Y") echo " checked=\"checked\"";?>
+                        class="show-for-sr"
+                        onclick="submitForm();"
+                        />
 
                     <label for="ID_DELIVERY_ID_<?=$arDelivery["ID"]?>" class="price-block" <?=$clickHandler?>>
                         <?=htmlspecialcharsbx($arDelivery["NAME"])?>
@@ -216,6 +216,12 @@
                             </span></p>
                         <?endif;?>
                     </label>
+                    <?php if ($arDelivery['NAME'] == 'СДЭК (Пункты выдачи заказов)') {?>
+                        <div class="punkti_somovivoza" <?if ($arDelivery["CHECKED"]=="Y") {echo 'style="display: block"';}?>>
+                            <span id="pvz" style="cursor:pointer; color: blue;"></span>
+                        </div>
+                    <?php }?>
+
                     <?if ($arDelivery['CHECKED'] == 'Y'):?>
                         <table class="delivery_extra_services">
                             <?php
@@ -287,7 +293,6 @@
                 if (checkBoxName != sravCheckBoxName) {
                     if ($(el).attr('checked') == 'checked') {
                         $(el).trigger('click');
-                        console.log('Клик по лишнему элементу');
                     }
                 }
             });
