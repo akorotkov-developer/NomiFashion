@@ -667,21 +667,83 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
                 <div itemprop="description"><? echo $arResult['PREVIEW_TEXT']; ?></div>
             <?endif;?>
 
-            <?php if($arResult['PROPERTIES']['SOSTAV_TKANI']['VALUE']) {?>
-                <div>
-                    <b>Состав ткани: </b><?= $arResult['PROPERTIES']['SOSTAV_TKANI']['VALUE'];?>
-                </div>
-            <?php }?>
-            <?php if($arResult['PROPERTIES']['PODKLADKA']['VALUE']) {?>
-                <div>
-                    <b>Подкладка: </b><?= $arResult['PROPERTIES']['PODKLADKA']['VALUE'];?>
-                </div>
-            <?php }?>
 
-            <div class="description_on_left_sidebar_cart hidden_description">
-                <?if ('' != $arResult['DETAIL_TEXT']):?>
-                    <p><? echo $arResult['DETAIL_TEXT']; ?></p>
-                <?endif;?>
+            <div class="b-props">
+                <?php if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
+
+                    foreach ($arResult['OFFERS'] as $key => $arOneOffer) {
+                        $strVisible = ($key == $arResult['OFFERS_SELECTED'] ? '' : 'none');?>
+                        <div id="<? echo $arItemIDs['PROP_TABLE'].$arOneOffer['ID'] ?>" style="display: <? echo $strVisible; ?>;">
+                            <?php
+                            $elemntCount = 0;
+                            foreach ($arResult['DISPLAY_PROPERTIES'] as $arProperty) {
+                                $elemntCount++;
+                                if ($elemntCount > 3) {
+                                    $hidePropClass = 'hidden_prop';
+                                } else {
+                                    $hidePropClass = '';
+                                }
+                                if (in_array($arProperty['ID'], $arResult['SHOWED_PROPERTIES']) && $arProperty['ACTIVE'] == 'Y') {
+                                    $pValue = (is_array($arProperty['DISPLAY_VALUE']) ? implode(' / ', $arProperty['DISPLAY_VALUE']) : $arProperty['DISPLAY_VALUE']);?>
+                                    <div class="<?= $hidePropClass?>"><b><?=$arProperty['NAME']?>: </b> <?=$pValue?></div>
+                                <?php }
+                            }?>
+                            <?if (!empty($arOneOffer['DISPLAY_PROPERTIES'])) {
+                                $elemntCount = 0;
+                                foreach ($arOneOffer['DISPLAY_PROPERTIES'] as $arOneProp) {
+                                    $elemntCount++;
+                                    if ($elemntCount > 3) {
+                                        $hidePropClass = 'hidden_prop';
+                                    } else {
+                                        $hidePropClass = '';
+                                    }
+                                    $pValue = (is_array($arOneProp['DISPLAY_VALUE']) ? implode(' / ', $arOneProp['DISPLAY_VALUE']) : $arOneProp['DISPLAY_VALUE']);?>
+                                    <div><b><?=$arOneProp['NAME']?>:</b> <?=$pValue?></div>
+                                <?php }
+                            };?>
+
+                            <?php if ($hidePropClass != '') {?>
+                                <span class="show_all all_props">Подробнее</span>
+                            <?php }?>
+                        </div>
+                    <?php }?>
+                <?php } else {?>
+                    <table>
+                        <?php
+                        $elemntCount = 0;
+                        foreach ($arResult['DISPLAY_PROPERTIES'] as $arProperty) {
+                            $elemntCount++;
+                            if ($elemntCount > 3) {
+                                $hidePropClass = 'hidden_prop';
+                            } else {
+                                $hidePropClass = '';
+                            }
+                            if (in_array($arProperty['ID'], $arResult['SHOWED_PROPERTIES']) && $arProperty['ACTIVE'] == 'Y') {
+                                $pValue = (is_array($arProperty['DISPLAY_VALUE']) ? implode(' / ', $arProperty['DISPLAY_VALUE']) : $arProperty['DISPLAY_VALUE']);?>
+                                <div class="<?=$hidePropClass?>"><b><?=$arProperty['NAME']?>: </b> <?=$pValue?></div>
+                            <?php }
+                        }?>
+                    </table>
+                <?php }?>
+            </div>
+
+            <div class="description_on_left_sidebar_cart">
+                <?php if ('' != $arResult['DETAIL_TEXT']) { ?>
+                    <b>Описание</b>
+                    <?php if (mb_strlen($arResult['DETAIL_TEXT']) > 200) {?>
+                        <div class="short_descr">
+                            <?= TruncateText($arResult['DETAIL_TEXT'], 200);?>
+                        </div>
+                        <div class="full_descr_text">
+                            <?= $arResult['DETAIL_TEXT'];?>
+                        </div>
+                        <span class="show_all full_descr">Подробнее</span>
+                    <?php } else { ?>
+                        <p><? echo $arResult['DETAIL_TEXT']; ?></p>
+                    <?php }?>
+                <?php }?>
+
+
                 <?if (!empty($arResult['DISPLAY_PROPERTIES']['DOCS']['VALUE']) && $arResult['DISPLAY_PROPERTIES']['DOCS']['ACTIVE'] == 'Y'):
                     $i = 0;?>
                     <dl class="product-doc row xlarge-up-2">
@@ -717,7 +779,31 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
                     </dl>
                 <?endif;?>
             </div>
-            <noindex><span class="show_hidden_description" data-opened="false">Читать далее</span></noindex>
+
+            <div class="availability_in_stores">
+                <div><b>Наличие в магазинах: </b></div>
+                <div class="show_all availability_show">(показать)</div>
+                <div class="availability_in_stores_content">
+                    <?$APPLICATION->IncludeComponent("bitrix:catalog.store.amount", ".default", array(
+                        "ELEMENT_ID" => $arResult['ID'],
+                        "STORE_PATH" => $arParams['STORE_PATH'],
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "36000",
+                        "MAIN_TITLE" => $arParams['MAIN_TITLE'],
+                        "USE_MIN_AMOUNT" => "N",
+                        "REAL_USE_MIN_AMOUNT" => $arParams['USE_MIN_AMOUNT'],
+                        "MIN_AMOUNT" => $arParams['MIN_AMOUNT'],
+                        "MAX_AMOUNT" => $arParams['MAX_AMOUNT'],
+                        "STORES" => $arParams['STORES'],
+                        "SHOW_EMPTY_STORE" => $arParams['SHOW_EMPTY_STORE'],
+                        "SHOW_GENERAL_STORE_INFORMATION" => $arParams['SHOW_GENERAL_STORE_INFORMATION'],
+                        "MESS_GENERAL_STORE" => $arParams['MESS_GENERAL_STORE'],
+                        "USER_FIELDS" => $arParams['USER_FIELDS'],
+                        "FIELDS" => $arParams['FIELDS']
+                    ));?>
+                </div>
+            </div>
+
         </div>
     <?endif;?>
 
@@ -1156,7 +1242,7 @@ if ($isAmount) {
                     </div>
                 </li>
             <?endif;?>
-            <?if ($isComments):
+            <? if ($isComments):
                 $activeClass = (!$isFirst) ? ' is-active' : '';
                 $isFirst = true;?>
                 <li class="product-accordion-tabs-item accordion-item<?=$activeClass?>" id="product-tab-3">

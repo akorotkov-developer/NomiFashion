@@ -1,0 +1,28 @@
+.b-props {
+    margin-bottom: 10px;
+}
+.show_all {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #000;
+}
+.hidden_prop {
+    display: none;
+}
+.full_descr_text {
+    display: none;
+}
+.availability_in_stores {
+    margin-bottom: 10px;
+    display: flex;
+}
+.description_on_left_sidebar_cart {
+    margin-bottom: 10px;
+}
+.availability_show {
+    margin-left: 5px;
+}
+.availability_in_stores_content {
+    margin-left: 5px;
+    display: none;
+}
