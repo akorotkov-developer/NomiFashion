@@ -74,17 +74,31 @@ function __showComment($comment, $arParams)
 <?
 }
 ?>
-<a href="#new-comment" id="review-link-add" onclick="return false;" class="button small fancybox"><?=getMessage('REVIEW_BUTTON')?></a>
 <?if ($arResult["is_ajax_post"] != "Y" && $arResult["CanUserComment"] && isset($_POST['first_load'])):?>
     <? include __DIR__.'/form.php'?>
 <?endif;?>
+
 <?if (!empty($arResult['ITEMS'])):
-    foreach ($dbResult->arResult as $comment):
-        __showComment($comment, $arParams);
-    endforeach;
+    echo '<div class="reviews-items">';
+        $elementCount = 0;
+        foreach ($dbResult->arResult as $comment):
+            if ($elementCount % 2 == 0 && $elementCount != 0) {
+                echo '</div>';
+                echo '<div class="reviews-items">';
+            }
+            echo '<div class="r-item">';
+                __showComment($comment, $arParams);
+            echo '</div>';
+
+            $elementCount++;
+        endforeach;
+    echo '</div>';
 else:?>
     <p><?=getMessage('REVIEWS_EMPTY')?></p>
 <?endif;?>
+
+<a href="#new-comment" id="review-link-add" onclick="return false;" class="button small fancybox"><?=getMessage('REVIEW_BUTTON')?></a>
+
 <a id="review-reload" href="<?=$APPLICATION->GetCurPageParam()?>"></a>
 <script type="text/javascript">
 	$(function(){

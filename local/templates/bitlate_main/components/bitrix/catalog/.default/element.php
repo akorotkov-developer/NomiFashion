@@ -383,6 +383,9 @@ if ($elementId > 0)
 }
 ?>
 	</section>
+    <section class="sect-reviews">
+
+    </section>
 <?else:?>
 			</div>
 		</div>

@@ -784,23 +784,7 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
                 <div><b>Наличие в магазинах: </b></div>
                 <div class="show_all availability_show">(показать)</div>
                 <div class="availability_in_stores_content">
-                    <?$APPLICATION->IncludeComponent("bitrix:catalog.store.amount", ".default", array(
-                        "ELEMENT_ID" => $arResult['ID'],
-                        "STORE_PATH" => $arParams['STORE_PATH'],
-                        "CACHE_TYPE" => "A",
-                        "CACHE_TIME" => "36000",
-                        "MAIN_TITLE" => $arParams['MAIN_TITLE'],
-                        "USE_MIN_AMOUNT" => "N",
-                        "REAL_USE_MIN_AMOUNT" => $arParams['USE_MIN_AMOUNT'],
-                        "MIN_AMOUNT" => $arParams['MIN_AMOUNT'],
-                        "MAX_AMOUNT" => $arParams['MAX_AMOUNT'],
-                        "STORES" => $arParams['STORES'],
-                        "SHOW_EMPTY_STORE" => $arParams['SHOW_EMPTY_STORE'],
-                        "SHOW_GENERAL_STORE_INFORMATION" => $arParams['SHOW_GENERAL_STORE_INFORMATION'],
-                        "MESS_GENERAL_STORE" => $arParams['MESS_GENERAL_STORE'],
-                        "USER_FIELDS" => $arParams['USER_FIELDS'],
-                        "FIELDS" => $arParams['FIELDS']
-                    ));?>
+
                 </div>
             </div>
 
@@ -1173,6 +1157,11 @@ foreach ($arResult['DISPLAY_PROPERTIES'] as $arProperty) {
         }
     }
 }
+//TODO костыль для отключения вкладок
+    $isAmount = false;
+    $isParams = false;
+    $countTabs = false;
+
 if ($isParams) {
     $countTabs++;
 }
@@ -1183,7 +1172,8 @@ if ($isComments) {
 $isAmount = ($arParams["USE_STORE"] == "Y" && count($arParams['STORES']) > 0 && \Bitrix\Main\ModuleManager::isModuleInstalled("catalog"));
 if ($isAmount) {
     $countTabs++;
-}?>
+}
+?>
 <div class="product-accordion-tabs">
     <div class="advanced-container-medium">
         <ul class="tabs row large-up-<?=$countTabs?> show-for-xlarge" id="product-accordion-tabs" data-tabs>
@@ -1247,37 +1237,50 @@ if ($isAmount) {
                 $isFirst = true;?>
                 <li class="product-accordion-tabs-item accordion-item<?=$activeClass?>" id="product-tab-3">
                     <a href="#" class="accordion-title hide-for-xlarge" role="tab"><?=getMessage('CT_BCE_CATALOG_REVIEWS')?></a>
-                    <div class="product-accordion-tabs-wrap accordion-content product-comments" data-tab-content role="tabpanel" id="bx-comments-blg_<?=$arResult['ID']?>">
+                    <div class="product-accordion-tabs-wrap accordion-content product-comments" data-tab-content role="tabpanel">
                     </div>
                 </li>
             <?endif;?>
             <?if ($isAmount):
                 $activeClass = (!$isFirst) ? ' is-active' : '';
                 $isFirst = true;?>
-                <li class="product-accordion-tabs-item accordion-item" id="product-tab-4">
-                    <a href="#" class="accordion-title hide-for-xlarge" role="tab"><?=getMessage('CT_BCE_CATALOG_AMOUNT')?></a>
-                    <div class="product-accordion-tabs-wrap accordion-content" data-tab-content role="tabpanel">
-                        <?$APPLICATION->IncludeComponent("bitrix:catalog.store.amount", ".default", array(
-                            "ELEMENT_ID" => $arResult['ID'],
-                            "STORE_PATH" => $arParams['STORE_PATH'],
-                            "CACHE_TYPE" => "A",
-                            "CACHE_TIME" => "36000",
-                            "MAIN_TITLE" => $arParams['MAIN_TITLE'],
-                            "USE_MIN_AMOUNT" => "N",
-                            "REAL_USE_MIN_AMOUNT" => $arParams['USE_MIN_AMOUNT'],
-                            "MIN_AMOUNT" => $arParams['MIN_AMOUNT'],
-                            "MAX_AMOUNT" => $arParams['MAX_AMOUNT'],
-                            "STORES" => $arParams['STORES'],
-                            "SHOW_EMPTY_STORE" => $arParams['SHOW_EMPTY_STORE'],
-                            "SHOW_GENERAL_STORE_INFORMATION" => $arParams['SHOW_GENERAL_STORE_INFORMATION'],
-                            "MESS_GENERAL_STORE" => $arParams['MESS_GENERAL_STORE'],
-                            "USER_FIELDS" => $arParams['USER_FIELDS'],
-                            "FIELDS" => $arParams['FIELDS']
-                        ));?>
-                    </div>
-                </li>
+
             <?endif;?>
         </ul>
     </div>
+</div>
+
+<div class="b-reviews" style="display: none">
+    <div class="content-reviews advanced-container-medium">
+        <span class="review-title">Отзывы</span>
+
+        <div class="product-accordion-tabs-wrap accordion-content product-comments" data-tab-content role="tabpanel" id="bx-comments-blg_<?=$arResult['ID']?>">
+        </div>
+    </div>
+</div>
+
+<div class="b-hidden-store-amount" style="display:none;">
+    <li class="product-accordion-tabs-item accordion-item" id="product-tab-4">
+        <a href="#" class="accordion-title hide-for-xlarge" role="tab"><?=getMessage('CT_BCE_CATALOG_AMOUNT')?></a>
+        <div class="product-accordion-tabs-wrap accordion-content b-content-store-amount" data-tab-content role="tabpanel">
+            <?$APPLICATION->IncludeComponent("bitrix:catalog.store.amount", ".default", array(
+                "ELEMENT_ID" => $arResult['ID'],
+                "STORE_PATH" => $arParams['STORE_PATH'],
+                "CACHE_TYPE" => "A",
+                "CACHE_TIME" => "36000",
+                "MAIN_TITLE" => $arParams['MAIN_TITLE'],
+                "USE_MIN_AMOUNT" => "N",
+                "REAL_USE_MIN_AMOUNT" => $arParams['USE_MIN_AMOUNT'],
+                "MIN_AMOUNT" => $arParams['MIN_AMOUNT'],
+                "MAX_AMOUNT" => $arParams['MAX_AMOUNT'],
+                "STORES" => $arParams['STORES'],
+                "SHOW_EMPTY_STORE" => $arParams['SHOW_EMPTY_STORE'],
+                "SHOW_GENERAL_STORE_INFORMATION" => $arParams['SHOW_GENERAL_STORE_INFORMATION'],
+                "MESS_GENERAL_STORE" => $arParams['MESS_GENERAL_STORE'],
+                "USER_FIELDS" => $arParams['USER_FIELDS'],
+                "FIELDS" => $arParams['FIELDS']
+            ));?>
+        </div>
+    </li>
 </div>
 <?endif;?>
