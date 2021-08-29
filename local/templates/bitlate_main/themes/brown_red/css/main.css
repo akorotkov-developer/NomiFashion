@@ -10170,7 +10170,7 @@ blockquote:after, blockquote:before {
     display: block;
     margin: 1.25rem auto .9375rem;
     width: 5.9375rem;
-    border: .0625rem solid #c02344
+    border: .0625rem solid #666
 }
 
 .callout.error {
