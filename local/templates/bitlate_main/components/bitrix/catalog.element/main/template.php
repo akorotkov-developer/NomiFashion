@@ -1306,6 +1306,6 @@ if ($isAmount) {
 <div class="popup-fade">
     <div class="popup">
         <a class="popup-close" href="#">Закрыть</a>
-        <p>Таблица размеров</p>
+        <img class="img-size-chart" src="/sizechart.jpg">
     </div>
 </div>
