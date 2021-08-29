@@ -245,32 +245,34 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
                     <span class="rating-count hide-for-small-only" title="<?=getMessage('CT_BCS_COUNT_RATE', array('COUNT' => $arResult['VOTE_COUNT']))?>"><?=$arResult['VOTE_COUNT']?></span>
                 </div>
             </div>
-            <?if ($arParams['SHOW_MAX_QUANTITY'] !== 'N'):
-                if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS'])):
-                    $quantityInfo = NLApparelshopUtils::getProductAmount($arResult['CATALOG_QUANTITY'], $arParams['MIN_AMOUNT'], $arParams['MAX_AMOUNT']);
-                    $quantityText = ($arParams['USE_MIN_AMOUNT'] == "Y") ? $quantityInfo['text'] : $quantityInfo['products'];?>
-                    <div class="column existence <?=$quantityInfo['class']?>" title="<?=$quantityText?>">
-                        <div class="existence-icon">
-                            <div class="existence-icon-active"></div>
+            <div class="products_count_info">
+                <?if ($arParams['SHOW_MAX_QUANTITY'] !== 'N'):
+                    if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS'])):
+                        $quantityInfo = NLApparelshopUtils::getProductAmount($arResult['CATALOG_QUANTITY'], $arParams['MIN_AMOUNT'], $arParams['MAX_AMOUNT']);
+                        $quantityText = ($arParams['USE_MIN_AMOUNT'] == "Y") ? $quantityInfo['text'] : $quantityInfo['products'];?>
+                        <div class="column existence <?=$quantityInfo['class']?>" title="<?=$quantityText?>">
+                            <div class="existence-icon">
+                                <div class="existence-icon-active"></div>
+                            </div>
+                            <span class="existence-count"><?=$quantityText?></span>
                         </div>
-                        <span class="existence-count"><?=$quantityText?></span>
-                    </div>
-                <?else:?>
-                    <div class="column">
-                        <?foreach ($arResult['OFFERS'] as $key => $arOneOffer):
-                            $quantityInfo = NLApparelshopUtils::getProductAmount($arOneOffer['CATALOG_QUANTITY'], $arParams['MIN_AMOUNT'], $arParams['MAX_AMOUNT']);
-                            $quantityText = ($arParams['USE_MIN_AMOUNT'] == "Y") ? $quantityInfo['text'] : $quantityInfo['products'];
-                            $strVisible = ($key == $arResult['OFFERS_SELECTED'] ? '' : 'none');?>
-                                <div class="existence <?=$quantityInfo['class']?>" id="<? echo $arItemIDs['QUANTITY_MAX'].$arOneOffer['ID']; ?>" style="display: <? echo $strVisible; ?>;">
-                                    <div class="existence-icon">
-                                        <div class="existence-icon-active"></div>
+                    <?else:?>
+                        <div class="column">
+                            <?foreach ($arResult['OFFERS'] as $key => $arOneOffer):
+                                $quantityInfo = NLApparelshopUtils::getProductAmount($arOneOffer['CATALOG_QUANTITY'], $arParams['MIN_AMOUNT'], $arParams['MAX_AMOUNT']);
+                                $quantityText = ($arParams['USE_MIN_AMOUNT'] == "Y") ? $quantityInfo['text'] : $quantityInfo['products'];
+                                $strVisible = ($key == $arResult['OFFERS_SELECTED'] ? '' : 'none');?>
+                                    <div class="existence <?=$quantityInfo['class']?>" id="<? echo $arItemIDs['QUANTITY_MAX'].$arOneOffer['ID']; ?>" style="display: <? echo $strVisible; ?>;">
+                                        <div class="existence-icon">
+                                            <div class="existence-icon-active"></div>
+                                        </div>
+                                        <span class="existence-count"><?=$quantityText?></span>
                                     </div>
-                                    <span class="existence-count"><?=$quantityText?></span>
-                                </div>
-                        <?endforeach;?>
-                    </div>
+                            <?endforeach;?>
+                        </div>
+                    <?endif;?>
                 <?endif;?>
-            <?endif;?>
+            </div>
         </div>
         <div class="clearfix"></div>
         <div class="row" id="<? echo $arItemIDs['PROP_DIV']; ?>">
@@ -358,7 +360,7 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
                         if ("SIZES_CLOTHES" == $arProp['CODE'] || "SIZES_SHOES" == $arProp['CODE']) {
                             $arProp['NAME'] = GetMessage("CT_BCS_CATALOG_SIZE_TITLE");
                         }?>
-                        <div class="column<?=$classSku?>">
+                        <div class="column-large-8 flex-size-chart">
                             <div class="product-info-option text" id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_cont">
                                 <div class="product-info-caption"><? echo htmlspecialcharsex($arProp['NAME']); ?></div>
                                 <fieldset class="inline-block-container" id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_list">
@@ -372,6 +374,14 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
                                 </fieldset>
                                 <div class="bx_slide_left" id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_left" data-treevalue="<? echo $arProp['ID']; ?>"></div>
                                 <div class="bx_slide_right" id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_right" data-treevalue="<? echo $arProp['ID']; ?>"></div>
+                            </div>
+
+                            <div class="size_chart popup-open">
+                                <svg style="width: 30px;" viewBox="0 -100 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m442.3125 22.980469c-3.816406-1.601563-8.214844.195312-9.816406 4.015625-1.605469 3.820312.191406 8.214844 4.015625 9.816406 38.441406 16.128906 60.488281 38.710938 60.488281 61.957031 0 21.339844-18.1875 41.859375-51.207031 57.78125-34.765625 16.757813-81.148438 25.984375-130.613281 25.984375-49.464844 0-95.851563-9.226562-130.617188-25.984375-33.019531-15.921875-51.207031-36.441406-51.207031-57.78125 0-21.339843 18.1875-41.863281 51.207031-57.78125 34.765625-16.757812 81.152344-25.988281 130.617188-25.988281 31.460937 0 62.511718 3.859375 89.789062 11.15625 4.003906 1.070312 8.113281-1.308594 9.183594-5.308594 1.070312-4-1.304688-8.113281-5.304688-9.183594-28.527344-7.632812-60.917968-11.664062-93.667968-11.664062-51.675782 0-100.375 9.757812-137.128907 27.476562-38.496093 18.558594-59.695312 43.875-59.695312 71.292969v83.769531h-85.523438c-18.101562 0-32.832031 14.726563-32.832031 32.832032v63.625c0 18.105468 14.730469 32.832031 32.832031 32.832031h282.347657c51.671874 0 100.371093-9.757813 137.125-27.476563 38.496093-18.554687 59.695312-43.875 59.695312-71.289062v-114.292969c0-29.582031-25.398438-57.207031-69.6875-75.789062zm-308.957031 114.246093c10.117187 12.277344 25.179687 23.425782 44.695312 32.835938 9.835938 4.742188 20.535157 8.90625 31.914063 12.476562h-76.609375zm363.644531 75.835938c0 11.8125-5.585938 23.375-16.164062 34.046875v-62.765625c0-4.144531-3.355469-7.5-7.5-7.5-4.144532 0-7.5 3.355469-7.5 7.5v75.058594c-5.902344 4.019531-12.59375 7.847656-20.042969 11.4375-10.285157 4.960937-21.59375 9.25-33.6875 12.847656v-69.09375c0-4.144531-3.359375-7.5-7.5-7.5-4.144531 0-7.5 3.355469-7.5 7.5v73.097656c-16.84375 4.003906-34.921875 6.746094-53.730469 8.117188v-70.921875c0-4.144531-3.359375-7.5-7.5-7.5-4.144531 0-7.5 3.355469-7.5 7.5v71.71875c-4.371094.148437-8.769531.222656-13.195312.222656h-40.535157v-71.402344c0-4.144531-3.359375-7.5-7.5-7.5-4.144531 0-7.5 3.355469-7.5 7.5v71.402344h-53.734375v-71.402344c0-4.144531-3.355468-7.5-7.5-7.5-4.140625 0-7.5 3.355469-7.5 7.5v71.402344h-53.730468v-71.402344c0-4.144531-3.359376-7.5-7.5-7.5-4.140626 0-7.5 3.355469-7.5 7.5v71.402344h-53.730469v-71.402344c0-4.144531-3.359375-7.5-7.5-7.5s-7.5 3.355469-7.5 7.5v71.402344h-20.617188c-9.832031 0-17.832031-8-17.832031-17.832031v-63.625c0-9.835938 8-17.832032 17.832031-17.832032h282.347657c51.671874 0 100.371093-9.757812 137.125-27.476562 19.511718-9.40625 34.578124-20.546875 44.695312-32.820312zm0 0"/><path d="m246.972656 98.769531c0 20.957031 29.324219 36.765625 68.207032 36.765625 38.882812 0 68.203124-15.808594 68.203124-36.765625 0-20.960937-29.320312-36.765625-68.203124-36.765625-38.882813 0-68.207032 15.808594-68.207032 36.765625zm121.410156 0c0 10.273438-22.753906 21.765625-53.203124 21.765625-30.453126 0-53.207032-11.492187-53.207032-21.765625 0-10.277343 22.753906-21.765625 53.207032-21.765625 30.449218 0 53.203124 11.492188 53.203124 21.765625zm0 0"/>
+                                </svg>
+                                <span class="size-chart-title">
+                                Таблица размеров
+                                </span>
                             </div>
                         </div>
                     <?} elseif ('PICT' == $arProp['SHOW_MODE']) {
@@ -793,43 +803,6 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
 
     <script src="//yastatic.net/share2/share.js" charset="utf-8"></script>
     <div class="ya-share2 hide" data-services="facebook,vkontakte,odnoklassniki,twitter,gplus"></div>
-    <ul class="product-info-block product-info-social inline-block-container">
-        <li class="inline-block-item">
-            <a href="ya-share2__item_service_facebook" target="_blank">
-                <svg class="icon icon-social-facebook"">
-                    <use xlink:href="#svg-icon-social-facebook"></use>
-                </svg>
-            </a>
-        </li>
-        <li class="inline-block-item">
-            <a href="ya-share2__item_service_vkontakte" target="_blank">
-                <svg class="icon icon-social-vk">
-                    <use xlink:href="#svg-icon-social-vk"></use>
-                </svg>
-            </a>
-        </li>
-        <li class="inline-block-item">
-            <a href="ya-share2__item_service_odnoklassniki" target="_blank">
-                <svg class="icon icon-social-ok">
-                    <use xlink:href="#svg-icon-social-ok"></use>
-                </svg>
-            </a>
-        </li>
-        <li class="inline-block-item">
-            <a href="ya-share2__item_service_twitter" target="_blank">
-                <svg class="icon icon-social-twitter">
-                    <use xlink:href="#svg-icon-social-twitter"></use>
-                </svg>
-            </a>
-        </li>
-        <li class="inline-block-item">
-            <a href="ya-share2__item_service_gplus" target="_blank">
-                <svg class="icon icon-social-google">
-                    <use xlink:href="#svg-icon-social-google"></use>
-                </svg>
-            </a>
-        </li>
-    </ul>
 </div>
 <?if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']))
 {
@@ -1284,3 +1257,55 @@ if ($isAmount) {
     </li>
 </div>
 <?endif;?>
+
+<div class="inner-container advanced-container-medium social-container">
+    <div class="product-info product-info-noborder">
+        <ul class="product-info-block product-info-social inline-block-container">
+            <li class="inline-block-item social_title">
+                Поделиться
+            </li>
+            <li class="inline-block-item">
+                <a href="ya-share2__item_service_facebook" target="_blank">
+                    <svg class="icon icon-social-facebook"">
+                    <use xlink:href="#svg-icon-social-facebook"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="inline-block-item">
+                <a href="ya-share2__item_service_vkontakte" target="_blank">
+                    <svg class="icon icon-social-vk">
+                        <use xlink:href="#svg-icon-social-vk"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="inline-block-item">
+                <a href="ya-share2__item_service_odnoklassniki" target="_blank">
+                    <svg class="icon icon-social-ok">
+                        <use xlink:href="#svg-icon-social-ok"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="inline-block-item">
+                <a href="ya-share2__item_service_twitter" target="_blank">
+                    <svg class="icon icon-social-twitter">
+                        <use xlink:href="#svg-icon-social-twitter"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="inline-block-item">
+                <a href="ya-share2__item_service_gplus" target="_blank">
+                    <svg class="icon icon-social-google">
+                        <use xlink:href="#svg-icon-social-google"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="popup-fade">
+    <div class="popup">
+        <a class="popup-close" href="#">Закрыть</a>
+        <p>Таблица размеров</p>
+    </div>
+</div>

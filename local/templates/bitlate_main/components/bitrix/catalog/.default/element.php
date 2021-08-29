@@ -46,7 +46,7 @@ else
 	false
 );?>
 				</nav>
-				<article class="inner-container product-container">
+				<article class="inner-container product-container product-detail-container">
 <?else:?>
 	<div class="fancybox-block fancybox-block-preview" style="display: block;">
 		<div class="advanced-container-medium" id="product_preview">
