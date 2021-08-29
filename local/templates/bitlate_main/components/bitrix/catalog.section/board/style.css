@@ -15,7 +15,7 @@
     height: 100%;
 }
 .product-seeit .name.display_seeit_none {
-    display: none!important;
+    /*display: none!important;*/
 }
 .product-grid-recomend .b-banner-inside-product {
     width: 100%;
@@ -27,3 +27,11 @@
 .products-flex-item-custom-height {
     height: 800px;
 }*/
+
+/*
+.product-seeit .owl-carousel .owl-stage-outer {
+    overflow: visible;
+}*/
+.product-seeit .product-grid .item {
+    height: 370px;
+}

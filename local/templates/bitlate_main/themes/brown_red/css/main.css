@@ -11168,6 +11168,15 @@ blockquote:after, blockquote:before {
     padding: 0px;
     border: 0px;
 }
+.product-grid .item {
+    position: relative;
+    margin-top: -1px;
+    margin-left: -1px;
+    width: 15.0625rem;
+    height: 18.1875rem;
+    padding: 0px;
+    border: 0px;
+}
 
 .product-grid .item:first-child {
     margin-left: 0

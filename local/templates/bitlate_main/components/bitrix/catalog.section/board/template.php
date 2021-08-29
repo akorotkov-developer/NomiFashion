@@ -70,7 +70,7 @@ if (!empty($arResult['ITEMS']))
     $largeClass = ($arParams["TAB_TYPE"]) ? "xlarge-6" : "large-6";?>
     <?if ($arParams["TEMPLATE_THEME"] == 'slider'):?>
         <div class="product-seeit">
-            <div class="container row">
+            <div class="container row margin-bottom-60">
                 <div class="h2"><?=$arParams["PAGER_TITLE"]?></div>
                 <div class="owl-carousel product-carousel product-grid<?if ($arParams['SUB_SLIDER'] == "Y"):?> product-carousel-inner<?endif;?>"<?if ($arParams['SLIDER_ZINDEX'] > 0):?> style="z-index:<?=$arParams['SLIDER_ZINDEX']?>;"<?endif;?>>
     <?endif;?>

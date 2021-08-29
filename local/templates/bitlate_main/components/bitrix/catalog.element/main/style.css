@@ -123,3 +123,9 @@
     width: 100%;
     height: 100%;
 }
+.product-seeit .product-seeit {
+    border-top: 0px;
+}
+.margin-bottom-60 {
+    margin-bottom: 60px!important;
+}
