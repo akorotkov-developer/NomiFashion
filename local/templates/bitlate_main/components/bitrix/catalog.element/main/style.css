@@ -129,3 +129,12 @@
 .margin-bottom-60 {
     margin-bottom: 60px!important;
 }
+.product-seeit .name.display_seeit_none {
+    margin-bottom: -5px;
+}
+.similar_products .price {
+    display: none;
+}
+.similar_products.product-seeit .name.display_seeit_none {
+    display: none;
+}

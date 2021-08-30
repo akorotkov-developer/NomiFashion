@@ -68,8 +68,14 @@ if (!empty($arResult['ITEMS']))
     $isPriceMulty = ($arParams["PRICE_MULTY"] == "Y");
     $previewOfferPicCode = COption::GetOptionString("bitlate.apparelshop", 'NL_CATALOG_OFFER_PIC_CODE', false, SITE_ID);
     $largeClass = ($arParams["TAB_TYPE"]) ? "xlarge-6" : "large-6";?>
-    <?if ($arParams["TEMPLATE_THEME"] == 'slider'):?>
-        <div class="product-seeit">
+    <?php
+    if ($arParams['PAGER_TITLE'] == 'Похожие товары') {
+        $sSimilarProducts = 'similar_products';
+    } else {
+        $sSimilarProducts = '';
+    }
+    if ($arParams["TEMPLATE_THEME"] == 'slider'):?>
+        <div class="product-seeit <?= $sSimilarProducts?>">
             <div class="container row margin-bottom-60">
                 <div class="h2"><?=$arParams["PAGER_TITLE"]?></div>
                 <div class="owl-carousel product-carousel product-grid<?if ($arParams['SUB_SLIDER'] == "Y"):?> product-carousel-inner<?endif;?>"<?if ($arParams['SLIDER_ZINDEX'] > 0):?> style="z-index:<?=$arParams['SLIDER_ZINDEX']?>;"<?endif;?>>
