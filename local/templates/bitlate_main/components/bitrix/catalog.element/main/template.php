@@ -360,7 +360,7 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
                         if ("SIZES_CLOTHES" == $arProp['CODE'] || "SIZES_SHOES" == $arProp['CODE']) {
                             $arProp['NAME'] = GetMessage("CT_BCS_CATALOG_SIZE_TITLE");
                         }?>
-                        <div class="column-large-8 flex-size-chart">
+                        <div class="column large-8 flex-size-chart">
                             <div class="product-info-option text" id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_cont">
                                 <div class="product-info-caption"><? echo htmlspecialcharsex($arProp['NAME']); ?></div>
                                 <fieldset class="inline-block-container" id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_list">
