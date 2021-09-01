@@ -71,14 +71,17 @@
 }
 .size_chart {
     color: #000;
-    padding-top: 20px;
-    margin-left: 15px;
     position: relative;
+    padding-top: 20px!important;
 }
 .size-chart-title {
     position: relative;
-    top: -6px;
+    top: -10px;
     left: 5px;
+    color: #42413c;
+    font-size: .8125rem;
+    line-height: 1rem;
+    font-weight: 700;
 }
 
 
@@ -134,4 +137,12 @@
 }
 .similar_products.product-seeit .name.display_seeit_none {
     display: none;
+}
+
+
+@media screen and (max-width: 502px) {
+    .product-seeit.similar_products .container {
+        padding-left: .625rem;
+        padding-right: .625rem;
+    }
 }
