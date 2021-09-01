@@ -245,7 +245,7 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
                     <span class="rating-count hide-for-small-only" title="<?=getMessage('CT_BCS_COUNT_RATE', array('COUNT' => $arResult['VOTE_COUNT']))?>"><?=$arResult['VOTE_COUNT']?></span>
                 </div>
             </div>
-            <div class="products_count_info">
+            <div class="column products_count_info">
                 <?if ($arParams['SHOW_MAX_QUANTITY'] !== 'N'):
                     if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS'])):
                         $quantityInfo = NLApparelshopUtils::getProductAmount($arResult['CATALOG_QUANTITY'], $arParams['MIN_AMOUNT'], $arParams['MAX_AMOUNT']);

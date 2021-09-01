@@ -18,17 +18,23 @@ $messGeneralStore = ($arParams['MESS_GENERAL_STORE'] != '') ? $arParams['MESS_GE
 ?>
 
 <?if (!empty($arResult["STORES"])):?>
-
+    <ul class="product-existence">
         <?foreach($arResult["STORES"] as $arProperty):
             if (isset($arProperty['REAL_AMOUNT']) && $arProperty['REAL_AMOUNT'] > 0) {
                 $isEmpty = false;
             }?>
-            <div  style="display: <? echo ($arParams['SHOW_EMPTY_STORE'] == 'N' && isset($arProperty['REAL_AMOUNT']) && $arProperty['REAL_AMOUNT'] <= 0 ? 'none' : ''); ?>;">
-
+            <li class="row" style="display: <? echo ($arParams['SHOW_EMPTY_STORE'] == 'N' && isset($arProperty['REAL_AMOUNT']) && $arProperty['REAL_AMOUNT'] <= 0 ? 'none' : ''); ?>;">
+                <div class="small-6 medium-9 columns">
+                    <?if ($arParams['SHOW_GENERAL_STORE_INFORMATION'] == "Y"):?>
+                        <?=$messGeneralStore?>
+                    <?elseif (isset($arProperty["TITLE"])):?>
+                        <a href="<?=$arProperty["URL"]?>" class="product-existence-address"><?=$arProperty["TITLE"]?></a><?if (isset($arProperty["PHONE"])):?><a href="tel:<?=$arProperty["PHONE"]?>" class="product-existence-phone"><?=GetMessage('S_PHONE')?> <?=$arProperty["PHONE"]?><?endif;?></a>
+                    <?endif;?>
+                </div>
                 <?$amount = (isset($arProperty['REAL_AMOUNT'])) ? $arProperty['REAL_AMOUNT'] : $arProperty['AMOUNT'];
                 $quantityInfo = NLApparelshopUtils::getProductAmount($amount, $arParams['MIN_AMOUNT'], $arParams['MAX_AMOUNT']);
                 $quantityText = ($arParams['REAL_USE_MIN_AMOUNT'] == "Y") ? $quantityInfo['text'] : $quantityInfo['products'];?>
-                <div id="<?=$arResult['JS']['ID']?>_<?=$arProperty['ID']?>">
+                <div class="small-6 medium-3 columns" id="<?=$arResult['JS']['ID']?>_<?=$arProperty['ID']?>">
                     <div class="existence <?=$quantityInfo['class']?> float-right" title="<?=$quantityText?>">
                         <div class="existence-icon">
                             <div class="existence-icon-active"></div>
@@ -36,9 +42,9 @@ $messGeneralStore = ($arParams['MESS_GENERAL_STORE'] != '') ? $arParams['MESS_GE
                         <span class="existence-count"><?=$quantityText?></span>
                     </div>
                 </div>
-            </div>
+            </li>
         <?endforeach;?>
-
+    </ul>
     <?if ($arParams['SHOW_EMPTY_STORE'] == 'N' && ($arParams['SHOW_GENERAL_STORE_INFORMATION'] == "N" || $isSku)):?>
         <ul class="product-existence" id="product-store-empty"<?if ($isSku || (!$isSku && !$isEmpty)):?> style="display: none;"<?endif;?>>
             <li class="row">

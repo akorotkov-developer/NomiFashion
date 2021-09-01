@@ -26,10 +26,9 @@ $(document).ready(function () {
     //Показать наличие в магазинах
     $('body').on('click', '.availability_show', function (e) {
         $(this).hide();
-        $($('.products_count_info')).appendTo($('.availability_in_stores_content'));
+        $($('.b-content-store-amount')).appendTo($('.availability_in_stores_content'));
         /*$('.availability_in_stores_content').html($('.products_count_info').html());*/
         $('.availability_in_stores_content').show();
-        $('.products_count_info').show();
     });
 
     $('.b-reviews>.content-reviews').appendTo( $('.sect-reviews') );
