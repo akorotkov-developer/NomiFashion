@@ -1,4 +1,4 @@
-<?$APPLICATION->IncludeComponent(
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:subscribe.edit", 
 	"small", 
 	array(
@@ -15,4 +15,4 @@
 		"AJAX_OPTION_HISTORY" => "N"
 	),
 	false
-);?>
+);*/?>
