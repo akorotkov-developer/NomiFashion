@@ -85,7 +85,9 @@ if (!empty($arResult['ITEMS']))
 <?php
 $itemsCount = 1;
 foreach ($arResult['ITEMS'] as $key => $arItem) {
-    if ($arItem['PROPERTIES']['NA_SAYT_VYGRUZHAT']['VALUE'] == 'Нет') {continue;}
+    if ($arItem['PROPERTIES']['NA_SAYT_VYGRUZHAT']['VALUE'] == 'Нет') {
+        continue;
+    }
 
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], $strElementEdit);
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], $strElementDelete, $arElementDeleteParams);

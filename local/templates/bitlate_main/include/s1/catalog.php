@@ -1,6 +1,11 @@
 <?\Bitrix\Main\Loader::includeModule('bitlate.apparelshop');
 $typePict = NLApparelshopUtils::getSkuPictType();
 $useLazyLoad = NLApparelshopUtils::getUseLazyLoad();
+
+$GLOBALS['arrFilter'] = [
+    '!PROPERTY_NA_SAYT_VYGRUZHAT' => 699
+];
+
 $APPLICATION->IncludeComponent(
 	"bitrix:catalog",
 	".default",
@@ -68,7 +73,6 @@ $APPLICATION->IncludeComponent(
 			3 => "SIZES_CLOTHES",
             4 => "SOSTAV_TKANI",
             5 => "PODKLADKA",
-            6 => "PROIZVODITEL",
             7 => "UKHOD",
             8 => "COLLECTION",
             9 => "TSVET"
@@ -80,7 +84,6 @@ $APPLICATION->IncludeComponent(
 			3 => "COUNTRY",
             4 => "SOSTAV_TKANI",
             5 => "PODKLADKA",
-            6 => "PROIZVODITEL",
             7 => "UKHOD",
             8 => "COLLECTION",
             9 => "TSVET"
@@ -106,7 +109,7 @@ $APPLICATION->IncludeComponent(
 			3 => "",
 		),
 		"FILTER_FIELD_CODE" => array(""),
-		"FILTER_NAME" => "",
+		"FILTER_NAME" => "arrFilter",
 		"FILTER_OFFERS_FIELD_CODE" => array(""),
 		"FILTER_OFFERS_PROPERTY_CODE" => array(""),
 		"FILTER_PRICE_CODE" => array(
@@ -179,7 +182,7 @@ $APPLICATION->IncludeComponent(
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "Y",
 		"PAGER_TEMPLATE" => "catalog",
-		"PAGE_ELEMENT_COUNT" => "15",
+		"PAGE_ELEMENT_COUNT" => "16",
 		"PARTIAL_PRODUCT_PROPERTIES" => "Y",
 		"PATH_TO_SMILE" => "/bitrix/images/forum/smile/",
 		"PRICE_CODE" => array(

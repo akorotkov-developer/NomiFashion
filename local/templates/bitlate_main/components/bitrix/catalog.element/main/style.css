@@ -150,3 +150,6 @@
         padding-right: .625rem;
     }
 }
+.short_descr p, .full_descr_text p {
+    margin-bottom: 5px;
+}
