@@ -59,7 +59,6 @@ class IblockEvents
             unset($arFields['CODE']);
             unset($arFields['PREVIEW_TEXT']);
             unset($arFields['DETAIL_TEXT']);
-            $arFields['ACTIVE'] = 'Y';
         }
     }
 
