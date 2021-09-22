@@ -12406,3 +12406,6 @@ header .header-line-top .menu li.active a {
         padding-top: 10px;
     }
 }
+.inner-container.product-container .popup-fade {
+    display: none;
+}
