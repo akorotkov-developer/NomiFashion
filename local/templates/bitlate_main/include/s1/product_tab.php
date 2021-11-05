@@ -54,7 +54,7 @@ $APPLICATION->IncludeComponent(
 		"CACHE_GROUPS" => "Y",
 		"SET_TITLE" => "N",
 		"SET_STATUS_404" => "N",
-		"PAGE_ELEMENT_COUNT" => $PAGE_ELEMENT_COUNT,
+		"PAGE_ELEMENT_COUNT" => 17,
 		"LINE_ELEMENT_COUNT" => "",
 		"PRICE_CODE" => array(
 			0 => "Розничная цена",
@@ -64,7 +64,7 @@ $APPLICATION->IncludeComponent(
 		"USE_ELEMENT_COUNTER" => "Y",
 		"USE_FILTER" => "Y",
 		"USE_MAIN_ELEMENT_SECTION" => "Y",
-		"USE_MIN_AMOUNT" => "Y",
+		"USE_MIN_AMOUNT" => "N",
 		"USE_PRICE_COUNT" => "N",
 		"SHOW_PRICE_COUNT" => "1",
 		"PRICE_VAT_INCLUDE" => "Y",
