@@ -17,5 +17,5 @@ $MESS['TITLE_TAB_NEWS'] = 'Новинки';
 $MESS['TITLE_TAB_HITS'] = 'Хиты продаж';
 $MESS['TITLE_TAB_DISCOUNT'] = 'Скидки';
 $MESS['TITLE_ADVANTAGES'] = 'Преимущества';
-$MESS['TITLE_BRANDS'] = 'Бренды';
+$MESS['TITLE_BRANDS'] = 'Подобрать одежду по цвету';
 ?>

@@ -977,7 +977,7 @@ $(document).ready(function() {
             if ($content.hasClass('tabs-content')) {
                 $content.removeClass('tabs-content').addClass('accordion').attr('data-accordion');
                 $items.addClass('accordion-item').removeClass('tabs-panel');
-                $wraps.addClass('accordion-content').hide();
+                //$wraps.addClass('accordion-content').hide();
                 $items.filter('.is-active').children('.product-accordion-tabs-wrap').show();
             }
         } else {

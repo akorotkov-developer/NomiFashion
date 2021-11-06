@@ -457,13 +457,29 @@ if ($arParams["REQUEST_LOAD"] == "Y") return;
                                     <?
                                     break;
                                 default: //CHECKBOXES
-                                    ?>
-                                    <fieldset class="checkbox">
-                                    <?foreach($arItem["VALUES"] as $val => $ar):?>
-                                            <input type="checkbox" name="<? echo $ar["CONTROL_NAME"] ?>" value="<? echo $ar["HTML_VALUE"] ?>" id="<? echo $ar["CONTROL_ID"] ?>" class="show-for-sr" <? echo $ar["CHECKED"]? 'checked="checked"': '' ?> onclick="smartFilter.click(this)" data-tip-top="-5">
-                                            <label data-role="label_<?=$ar["CONTROL_ID"]?>" for="<? echo $ar["CONTROL_ID"] ?>" class="bx-filter-param-label<? echo $ar["DISABLED"] ? ' disabled': '' ?>"><?=$ar["VALUE"];?><?if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):?> (<span class="count" data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?endif;?></label>
-                                    <?endforeach;?>
-                                    </fieldset>
+                                    if ($arItem['CODE'] == 'MANUFACTURE') {?>
+                                        <fieldset class="checkbox">
+                                            <?foreach($arItem["VALUES"] as $val => $ar): ?>
+                                                <input type="checkbox" name="<? echo $ar["CONTROL_NAME"] ?>" value="<? echo $ar["HTML_VALUE"] ?>" id="<? echo $ar["CONTROL_ID"] ?>" class="show-for-sr" <? echo $ar["CHECKED"]? 'checked="checked"': '' ?> onclick="smartFilter.click(this)" data-tip-top="-5">
+                                                <label
+                                                        data-role="label_<?=$ar["CONTROL_ID"]?>"
+                                                        for="<? echo $ar["CONTROL_ID"] ?>"
+                                                        class="bx-filter-param-label<? echo $ar["DISABLED"] ? ' disabled': '' ?>">
+
+                                                    <img class="image_in_filter_props" src="<?= $arResult['PROP_COLOR'][$val] ?>">
+
+                                                    <?if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):?> (<span class="count" data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?endif;?>
+                                                </label>
+                                            <?endforeach;?>
+                                        </fieldset>
+                                    <?php } else {?>
+                                        <fieldset class="checkbox">
+                                        <?foreach($arItem["VALUES"] as $val => $ar):?>
+                                                <input type="checkbox" name="<? echo $ar["CONTROL_NAME"] ?>" value="<? echo $ar["HTML_VALUE"] ?>" id="<? echo $ar["CONTROL_ID"] ?>" class="show-for-sr" <? echo $ar["CHECKED"]? 'checked="checked"': '' ?> onclick="smartFilter.click(this)" data-tip-top="-5">
+                                                <label data-role="label_<?=$ar["CONTROL_ID"]?>" for="<? echo $ar["CONTROL_ID"] ?>" class="bx-filter-param-label<? echo $ar["DISABLED"] ? ' disabled': '' ?>"><?=$ar["VALUE"];?><?if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):?> (<span class="count" data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?endif;?></label>
+                                        <?endforeach;?>
+                                        </fieldset>
+                                    <?php }?>
                             <?
                             }
                             ?>

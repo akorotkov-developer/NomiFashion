@@ -265,7 +265,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem) {
                     </a>
                 <?/*endif;*/?>
             </div>-->
-            <div id="<? echo $arItemIDs['SECOND_PICT']; ?>" class="img-wrap" style="background: url(<? echo (
+            <div id="<? echo $arItemIDs['PICT']; ?>" class="img-wrap" style="background: url(<? echo (
             !empty($arItem['PREVIEW_PICTURE_SECOND'])
                 ? $arItem['PREVIEW_PICTURE_SECOND']['SRC']
                 : $arItem['PREVIEW_PICTURE']['SRC']

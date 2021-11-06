@@ -27,7 +27,9 @@ $messGeneralStore = ($arParams['MESS_GENERAL_STORE'] != '') ? $arParams['MESS_GE
                 <div class="small-6 medium-9 columns">
                     <?if ($arParams['SHOW_GENERAL_STORE_INFORMATION'] == "Y"):?>
                         <?=$messGeneralStore?>
-                    <?elseif (isset($arProperty["TITLE"])):?>
+                    <?elseif (isset($arProperty["TITLE"])):
+                        $arProperty["TITLE"] = str_replace('( )', '', $arProperty["TITLE"]);
+                        ?>
                         <a href="<?=$arProperty["URL"]?>" class="product-existence-address"><?=$arProperty["TITLE"]?></a><?if (isset($arProperty["PHONE"])):?><a href="tel:<?=$arProperty["PHONE"]?>" class="product-existence-phone"><?=GetMessage('S_PHONE')?> <?=$arProperty["PHONE"]?><?endif;?></a>
                     <?endif;?>
                 </div>

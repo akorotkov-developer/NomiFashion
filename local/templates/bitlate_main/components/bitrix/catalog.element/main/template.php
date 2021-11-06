@@ -206,7 +206,8 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
 </div>
 <div class="product-info vertical-top">
     <div class="product-info-block">
-        <?$brand = $arResult['DISPLAY_PROPERTIES']['MANUFACTURE'];
+        <?/*
+        $brand = $arResult['DISPLAY_PROPERTIES']['MANUFACTURE'];
         $manufacProp = 'arrFilter_' . $brand['ID'] . '_'.abs(crc32(htmlspecialcharsbx($brand['VALUE'])));
         $fileId = ($brand['LINK_ELEMENT_VALUE'][$brand['VALUE']]['PREVIEW_PICTURE']) ? $brand['LINK_ELEMENT_VALUE'][$brand['VALUE']]['PREVIEW_PICTURE'] : $brand['LINK_ELEMENT_VALUE'][$brand['VALUE']]['DETAIL_PICTURE'];
         $pic = false;
@@ -215,7 +216,7 @@ $h1 = (isset($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]) && $arResult["
         }
         if ($pic !== false):?>
             <a href="<?=$brand['LINK_ELEMENT_VALUE'][$brand['VALUE']]['DETAIL_PAGE_URL']?>" class="float-right hide-for-small-only hide-for-medium-only"><img src="<?=$pic['src']?>" alt="<?=$brand['LINK_ELEMENT_VALUE'][$brand['VALUE']]['NAME']?>"></a>
-        <?endif;?>
+        <?endif;*/?>
         <h1 itemprop="name"><?=$h1?></h1>
         <?if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])):
             foreach ($arResult['OFFERS'] as $key => $arOneOffer):
@@ -1216,7 +1217,7 @@ if ($isAmount) {
                 $isFirst = true;?>
                 <li class="product-accordion-tabs-item accordion-item<?=$activeClass?>" id="product-tab-3">
                     <a href="#" class="accordion-title hide-for-xlarge" role="tab"><?=getMessage('CT_BCE_CATALOG_REVIEWS')?></a>
-                    <div class="product-accordion-tabs-wrap accordion-content product-comments" data-tab-content role="tabpanel">
+                    <div class="product-accordion-tabs-wrap product-comments" data-tab-content role="tabpanel">
                     </div>
                 </li>
             <?endif;?>
@@ -1233,7 +1234,7 @@ if ($isAmount) {
     <div class="content-reviews advanced-container-medium">
         <span class="review-title">Отзывы</span>
 
-        <div class="product-accordion-tabs-wrap accordion-content product-comments" data-tab-content role="tabpanel" id="bx-comments-blg_<?=$arResult['ID']?>">
+        <div class="product-accordion-tabs-wrap product-comments" data-tab-content role="tabpanel" id="bx-comments-blg_<?=$arResult['ID']?>">
         </div>
     </div>
 </div>
@@ -1281,13 +1282,6 @@ if ($isAmount) {
                 <a href="ya-share2__item_service_vkontakte" target="_blank">
                     <svg class="icon icon-social-vk">
                         <use xlink:href="#svg-icon-social-vk"></use>
-                    </svg>
-                </a>
-            </li>
-            <li class="inline-block-item">
-                <a href="ya-share2__item_service_odnoklassniki" target="_blank">
-                    <svg class="icon icon-social-ok">
-                        <use xlink:href="#svg-icon-social-ok"></use>
                     </svg>
                 </a>
             </li>

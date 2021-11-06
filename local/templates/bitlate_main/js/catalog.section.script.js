@@ -29,7 +29,7 @@ BX.extend(BasketButton, BX.PopupWindowButton);
 window.JCCatalogSection = function (arParams)
 {
 	this.productType = 0;
-	this.showQuantity = true;
+	this.showQuantity = false;
 	this.showAbsent = true;
 	this.secondPict = false;
 	this.showOldPrice = false;
@@ -143,6 +143,8 @@ window.JCCatalogSection = function (arParams)
 	{
 		this.productType = parseInt(arParams.PRODUCT_TYPE, 10);
 		this.showQuantity = arParams.SHOW_QUANTITY;
+		// TODO нарочно ставим showQuantity false (Костыль!!!)
+		this.showQuantity = false;
 		this.showAbsent = arParams.SHOW_ABSENT;
 		this.secondPict = !!arParams.SECOND_PICT;
 		this.showOldPrice = !!arParams.SHOW_OLD_PRICE;
@@ -156,6 +158,8 @@ window.JCCatalogSection = function (arParams)
 		this.showClosePopup = !!arParams.SHOW_CLOSE_POPUP;
 		this.useCompare = !!arParams.DISPLAY_COMPARE;
 		this.bigData = !!arParams.BIG_DATA;
+		// TODO нарочно установливаем bigData в true, чтобы работало сравнение, не понятно пока на что это повлияет
+
 
 		this.visual = arParams.VISUAL;
 		switch (this.productType)
@@ -291,6 +295,7 @@ window.JCCatalogSection = function (arParams)
 				this.errorCode = -1024;
 			}
 		}
+
 		if (this.useCompare)
 		{
 			if (!!arParams.COMPARE && typeof(arParams.COMPARE) === 'object')
@@ -333,6 +338,7 @@ window.JCCatalogSection.prototype.Init = function()
 	{
 		this.errorCode = -1;
 	}
+
 	this.obPict = BX(this.visual.PICT_ID);
 	if (!this.obPict)
 	{

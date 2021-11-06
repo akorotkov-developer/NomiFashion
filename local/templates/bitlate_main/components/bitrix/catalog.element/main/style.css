@@ -153,3 +153,8 @@
 .short_descr p, .full_descr_text p {
     margin-bottom: 5px;
 }
+
+.availability_in_stores_content .accordion-content {
+    display: block;
+    padding: 0px;
+}
