@@ -30,7 +30,7 @@ $messGeneralStore = ($arParams['MESS_GENERAL_STORE'] != '') ? $arParams['MESS_GE
                     <?elseif (isset($arProperty["TITLE"])):
                         $arProperty["TITLE"] = str_replace('( )', '', $arProperty["TITLE"]);
                         ?>
-                        <a href="<?=$arProperty["URL"]?>" class="product-existence-address"><?=$arProperty["TITLE"]?></a><?if (isset($arProperty["PHONE"])):?><a href="tel:<?=$arProperty["PHONE"]?>" class="product-existence-phone"><?=GetMessage('S_PHONE')?> <?=$arProperty["PHONE"]?><?endif;?></a>
+                        <?=$arProperty["TITLE"]?><?if (isset($arProperty["PHONE"])):?><a href="tel:<?=$arProperty["PHONE"]?>" class="product-existence-phone"><?=GetMessage('S_PHONE')?> <?=$arProperty["PHONE"]?><?endif;?></a>
                     <?endif;?>
                 </div>
                 <?$amount = (isset($arProperty['REAL_AMOUNT'])) ? $arProperty['REAL_AMOUNT'] : $arProperty['AMOUNT'];
