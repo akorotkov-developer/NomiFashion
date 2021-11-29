@@ -25,6 +25,7 @@ class IblockEvents
 
     public function OnBeforeIBlockElementUpdateHandler(&$arFields)
     {
+        \Bitrix\Main\Diag\Debug::dumpToFile(['$arFields' => $arFields], '', 'log.txt');
         if ($_REQUEST['mode'] == 'import') {
             //Деактивировать товары, у которых отмечено свойство на сайт не выгружать
             if (current($arFields['PROPERTY_VALUES'][self::NA_SAYT_VYGRUZHAT_PROP_ID])['VALUE'] == self::NA_SAYT_VYGRUZHAT_PROP_VALUE) {
