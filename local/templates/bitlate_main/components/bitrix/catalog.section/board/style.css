@@ -23,6 +23,11 @@
     justify-content: space-between;
     height: 300px;
 }
+.show_all {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #000;
+}
 /*
 .products-flex-item-custom-height {
     height: 800px;
@@ -34,4 +39,10 @@
 }*/
 .product-seeit .product-grid .item {
     height: 370px;
+}
+.full_descr_text {
+    display: none;
+}
+.short_descr p, .full_descr_text p {
+    margin-bottom: 5px;
 }

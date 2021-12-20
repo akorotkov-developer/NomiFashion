@@ -27,7 +27,7 @@ $typePict = NLApparelshopUtils::getSkuPictType();
 $template = NLApparelshopUtils::getComponentTemplate("board");
 $useLazyLoad = NLApparelshopUtils::getUseLazyLoad();
 $APPLICATION->IncludeComponent(
-	"bitrix:catalog.section", 
+	"bitrix:catalog.section",
 	$template, 
 	array(
 		"IBLOCK_TYPE" => "catalog",
@@ -54,7 +54,7 @@ $APPLICATION->IncludeComponent(
 		"CACHE_GROUPS" => "Y",
 		"SET_TITLE" => "N",
 		"SET_STATUS_404" => "N",
-		"PAGE_ELEMENT_COUNT" => 17,
+		"PAGE_ELEMENT_COUNT" => $PAGE_ELEMENT_COUNT,
 		"LINE_ELEMENT_COUNT" => "",
 		"PRICE_CODE" => array(
 			0 => "Розничная цена",
