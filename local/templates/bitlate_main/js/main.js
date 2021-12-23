@@ -627,7 +627,7 @@ $(document).ready(function() {
                     }
                 }
             }
-            mainMenuArrowPosition();
+            // mainMenuArrowPosition();
         }
     }
     

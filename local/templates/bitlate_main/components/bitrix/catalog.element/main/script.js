@@ -13,7 +13,7 @@ $(document).ready(function () {
     //Показать описание
     $('body').on('click', '.full_descr', function (e) {
         if ($(this).text() == 'Подробнее') {
-            $('.full_descr_text').show();
+            $(this).siblings('.full_descr_text').show();
             $('.short_descr').hide();
             $(this).text('Скрыть');
         } else {
