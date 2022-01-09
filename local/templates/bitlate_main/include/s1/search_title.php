@@ -5,7 +5,7 @@
 		"NUM_CATEGORIES" => "3",
 		"TOP_COUNT" => "3",
 		"ORDER" => "rank",
-		"USE_LANGUAGE_GUESS" => "Y",
+		"USE_LANGUAGE_GUESS" => "N",
 		"CHECK_DATES" => "N",
 		"SHOW_OTHERS" => "N",
 		"PAGE" => "/catalog/search/",

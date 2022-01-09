@@ -522,3 +522,6 @@ ul.child_menu_mobile {
 #product_preview .inner-container.advanced-container-medium.social-container {
     display: none;
 }
+.hidden_prop {
+    display: none;
+}
